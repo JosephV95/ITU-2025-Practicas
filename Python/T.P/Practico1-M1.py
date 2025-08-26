@@ -52,19 +52,29 @@ las condiciones de finalización, se debe mostrar la suma de todos los números.
 trabajadas y de acuerdo a un precio especificado por horas. Si se pasan de cuarenta horas semanales, las horas
 extraordinarias se pagarán a razón de 1,5 veces la hora ordinaria."""
 
-horas_trabajadas = int(input("Ingresa las horas semanales trabajadas: "))
-precio_hora = int(input("Ingrese el precio de la hora de trabajo: "))
+# horas_trabajadas = int(input("Ingresa las horas semanales trabajadas: "))
+# precio_hora = int(input("Ingrese el precio de la hora de trabajo: "))
 
-if horas_trabajadas > 40:
-     salario = 40 * precio_hora + (horas_trabajadas - 40) * (precio_hora * 1.5)
-     print("El Salario por", horas_trabajadas, "hs. de trabajo es de: $", salario )
-else:
-     salario= horas_trabajadas * precio_hora
-     print("El salario por", horas_trabajadas, "hs. de trabajo es de: $", salario)
+# if horas_trabajadas > 40:
+#      salario = 40 * precio_hora + (horas_trabajadas - 40) * (precio_hora * 1.5)
+#      print("El Salario por", horas_trabajadas, "hs. de trabajo es de: $", salario )
+# else:
+#      salario= horas_trabajadas * precio_hora
+#      print("El salario por", horas_trabajadas, "hs. de trabajo es de: $", salario)
 
 """6. Escribir un programa que pregunte al usuario una cantidad de dinero ($) a invertir, el interés anual y el número de años, y 
 muestre por pantalla el capital obtenido en la inversión cada año que dura la inversión. Nota: el valor inicial de
 cada año depende del capital + interés obtenido en el año anterior."""
+
+dinero = int(input("Ingrese la cantidad de dinero a invertir: "))
+interes = int(input("Ingrese la tasa de interes: "))
+anios = int (input("Ingrese la cantidad de años: "))
+
+dinero_total = dinero
+
+for num in range(1, anios + 1):
+     dinero_total = dinero_total + dinero_total * interes / 100
+     print("El dinero total para el anio", num, "fue de: $", round(dinero_total, 2)) #! round() sirve para limitar la cantidad de decimales, con el segundo valor (,2)
 
 """7. Se ha establecido un programa para estimular a los alumnos, el cual consiste en lo siguiente: si el promedio global obtenido 
 por un alumno en el último periodo es mayor o igual que 4, se le hará un descuento del 30% sobre la matrícula y no se le cobrará IVA; 
