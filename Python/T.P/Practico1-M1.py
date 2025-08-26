@@ -66,17 +66,39 @@ extraordinarias se pagarán a razón de 1,5 veces la hora ordinaria."""
 muestre por pantalla el capital obtenido en la inversión cada año que dura la inversión. Nota: el valor inicial de
 cada año depende del capital + interés obtenido en el año anterior."""
 
-dinero = int(input("Ingrese la cantidad de dinero a invertir: "))
-interes = int(input("Ingrese la tasa de interes: "))
-anios = int (input("Ingrese la cantidad de años: "))
+# dinero = int(input("Ingrese la cantidad de dinero a invertir: "))
+# interes = int(input("Ingrese la tasa de interes: "))
+# anios = int (input("Ingrese la cantidad de años: "))
 
-dinero_total = dinero
+# dinero_total = dinero
 
-for num in range(1, anios + 1):
-     dinero_total = dinero_total + dinero_total * interes / 100
-     print("El dinero total para el anio", num, "fue de: $", round(dinero_total, 2)) #! round() sirve para limitar la cantidad de decimales, con el segundo valor (,2)
+# for num in range(1, anios + 1):
+#      dinero_total = dinero_total + dinero_total * interes / 100
+#      print("El dinero total para el anio", num, "fue de: $", round(dinero_total, 2)) #! round() sirve para limitar la cantidad de decimales, con el segundo valor (,2)
 
 """7. Se ha establecido un programa para estimular a los alumnos, el cual consiste en lo siguiente: si el promedio global obtenido 
 por un alumno en el último periodo es mayor o igual que 4, se le hará un descuento del 30% sobre la matrícula y no se le cobrará IVA; 
 si el promedio obtenido es menor que 4 deberá pagar la matrícula completa, la cual debe incluir el 10% de IVA. Hacer un algoritmo que
 calcule el valor a pagar si se conocen las notas finales de las 6 materias que cursaron."""
+
+costo_matricula = int(input("Ingrese el Costa de la Matricula: "))
+lista_notas = []
+suma_notas = 0
+ 
+for i in range(1, 7):
+     # nota = int(input("Ingrese la nota", i ,": ")) #!input solo espera recibir 1 solo valor, con las comas se le esta pidiendo que sean 3, por eso da error
+     nota = int(input( f"Ingrese la nota {i}:")) #? esto es un f-string (cadena formateada) que permite meter variables dentro del texto.
+     while nota > 10:
+          nota = int(input( f"Ingrese la nota {i} (debe ser menor a 10):"))
+     
+     lista_notas.append(nota)
+
+for num_nota in lista_notas:
+     suma_notas += num_nota
+
+if suma_notas / len(lista_notas) >= 4 :
+     matricula_final = costo_matricula * 0.7
+     print("Felicidades se desconto 30% en el costo de la matricula, deberas abonar: $", round(matricula_final, 2))
+else:
+     matricula_final= costo_matricula * 1.1
+     print("No alcanzaste los requisitos para el descuento, deberas abonar: $", round(matricula_final, 2))
