@@ -39,6 +39,15 @@ PD: podría ingresar números hasta que el usuario ingrese un negativo o cero.""
 sea mayor a 50 o bien cuando la cantidad de números ingresados sea mayor a 10. Cuando se cumple alguna de
 las condiciones de finalización, se debe mostrar la suma de todos los números."""
 
+lista_de_nros = []
+total = 0
+
+while total <= 50 and len(lista_de_nros) < 10:
+     numero = int(input("Ingrese un numero a sumar:"))
+     lista_de_nros.append(numero)
+     total += numero
+print("Los numeros a sumar fueron:", lista_de_nros, "y la suma total fue de:", total)
+
 """5. Cálculo de los salarios mensuales de los empleados de una empresa, sabiendo que éstos se calculan en base a las horas semanales 
 trabajadas y de acuerdo a un precio especificado por horas. Si se pasan de cuarenta horas semanales, las horas
 extraordinarias se pagarán a razón de 1,5 veces la hora ordinaria."""
