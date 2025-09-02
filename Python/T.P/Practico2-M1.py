@@ -23,7 +23,23 @@ sean menores que el número dado. Imprimir esta nueva lista, iterando por ella."
 
 """2. Leer una secuencia de 10 números, almacenarlos en una lista y mostrar la suma de los elementos que ocupan posiciones pares y el 
 mayor número de los queocupan posiciones impares. """
-lista num = []
+
+listaNumeros = []
+listaPares = []
+listaImpares = []
+
+for _ in range(6):
+    numero = int(input("Ingrese un numero: "))
+    listaNumeros.append(numero)
+ 
+for i in range(0, len(listaNumeros), 2 ):
+    listaPares.append(listaNumeros[i])
+print("Los numeros con indice PAR son:", listaPares, "Y su sumatoria es de: ", sum(listaPares))
+
+for i in range(1, len(listaNumeros), 2 ):
+    listaImpares.append(listaNumeros[i])
+print("Los numeros de indice IMPAR son:", listaImpares, "y el valor mas grande es:", max(listaImpares))
+    
 
 
 """3. Dadas 2 listas A y B de igual número de elementos, se desea generar e imprimir una lista C conteniendo 
