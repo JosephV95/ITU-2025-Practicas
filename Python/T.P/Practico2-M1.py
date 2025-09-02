@@ -32,12 +32,13 @@ for _ in range(6):
     numero = int(input("Ingrese un numero: "))
     listaNumeros.append(numero)
  
-for i in range(0, len(listaNumeros), 2 ):
-    listaPares.append(listaNumeros[i])
+for i in range(0, len(listaNumeros)):
+    if i % 2 == 0:
+        listaPares.append(listaNumeros[i])
+    else:
+        listaImpares.append(listaNumeros[i])
+        
 print("Los numeros con indice PAR son:", listaPares, "Y su sumatoria es de: ", sum(listaPares))
-
-for i in range(1, len(listaNumeros), 2 ):
-    listaImpares.append(listaNumeros[i])
 print("Los numeros de indice IMPAR son:", listaImpares, "y el valor mas grande es:", max(listaImpares))
     
 
