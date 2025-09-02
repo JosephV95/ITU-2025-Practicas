@@ -81,9 +81,15 @@ ordenamiento existente."""
 
 lista_nombres = []
 
-for i in range(10):
-    nombre = input(f"Ingese el nombre nro {i}: ")
-    lista_nombres
+# for i in range(5):
+#     nombre = input(f"Ingese el nombre nro {i+1}: ")
+#     lista_nombres.append(nombre.lower())
+# print(sorted(lista_nombres))
+
+if 'a' > 'z':
+    print('a')
+else:
+    print('z')
 
 """5. Escribir un programa que permita cargar y procesar datos de alumnos del ITU en
 una lista de tuplas con la siguiente forma: (nombre, dni, materia). Ejemplo:
