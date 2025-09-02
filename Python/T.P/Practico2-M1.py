@@ -24,27 +24,55 @@ sean menores que el número dado. Imprimir esta nueva lista, iterando por ella."
 """2. Leer una secuencia de 10 números, almacenarlos en una lista y mostrar la suma de los elementos que ocupan posiciones pares y el 
 mayor número de los queocupan posiciones impares. """
 
-listaNumeros = []
-listaPares = []
-listaImpares = []
+# listaNumeros = []
+# listaPares = []
+# listaImpares = []
 
-for _ in range(6):
-    numero = int(input("Ingrese un numero: "))
-    listaNumeros.append(numero)
+# for _ in range(6):
+#     numero = int(input("Ingrese un numero: "))
+#     listaNumeros.append(numero)
  
-for i in range(0, len(listaNumeros)):
-    if i % 2 == 0:
-        listaPares.append(listaNumeros[i])
-    else:
-        listaImpares.append(listaNumeros[i])
+# for i in range(0, len(listaNumeros)):
+#     if i % 2 == 0:
+#         listaPares.append(listaNumeros[i])
+#     else:
+#         listaImpares.append(listaNumeros[i])
         
-print("Los numeros con indice PAR son:", listaPares, "Y su sumatoria es de: ", sum(listaPares))
-print("Los numeros de indice IMPAR son:", listaImpares, "y el valor mas grande es:", max(listaImpares))
-    
+# print("Los numeros con indice PAR son:", listaPares, "Y su sumatoria es de: ", sum(listaPares))
+# print("Los numeros de indice IMPAR son:", listaImpares, "y el valor mas grande es:", max(listaImpares))
 
 
 """3. Dadas 2 listas A y B de igual número de elementos, se desea generar e imprimir una lista C conteniendo 
 las sumas: A[i] + B[i] = C[i]. También indicar (solo imprimir por pantalla) aquellos elementos que están en A y no están en B."""
+
+#! A la entrada no se la convirtio en int para que pueda guardar un string
+entrada = input("Ingrese un numero para la lista A (presione Z para cancelar): ") 
+lista_A = []
+lista_B = []
+lista_C = []
+
+while entrada.lower() != "z": #! Se convierte la entrada en minuscula y luego si no es un string se la convierte a numero con int()
+    lista_A.append( int(entrada) )
+    entrada = input("Ingrese otro numero para la lista A (presione Z para terminar): ")
+
+for num in range( len(lista_A) ):
+    numeroB = int(input("Ingrese un numero para la lista B: "))
+    lista_B.append(numeroB)
+    
+for indice_A, indice_B in zip(lista_A, lista_B):
+    lista_C.append( indice_A + indice_B)
+    
+print("La lista A es:",lista_A)
+print("La lista B es:",lista_B)
+print("La lista C es:",lista_C)
+
+lista =[]
+for num_A in lista_A:
+    if num_A not in lista_B:
+        
+            lista.append(num_A)
+            print("el num", num_A, "esta en A pero no en B")
+print(lista)
 
 """4. Dado una lista de 10 nombres de personas, realice un programa que cargue la
 lista, la ordene de forma ascendente y la muestre por pantalla ordenado. Python
