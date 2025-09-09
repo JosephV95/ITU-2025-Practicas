@@ -46,32 +46,32 @@ mayor número de los queocupan posiciones impares. """
 las sumas: A[i] + B[i] = C[i]. También indicar (solo imprimir por pantalla) aquellos elementos que están en A y no están en B."""
 
 #! A la entrada no se la convirtio en int para que pueda guardar un string
-# entrada = input("Ingrese un numero para la lista A (presione Z para cancelar): ") 
-# lista_A = []
-# lista_B = []
-# lista_C = []
+entrada = input("Ingrese un numero para la lista A (presione Z para cancelar): ") 
+lista_A = []; lista_B = []; lista_C = []
 
-# while entrada.lower() != "z": #! Se convierte la entrada en minuscula y luego si no es un string se la convierte a numero con int()
-#     lista_A.append( int(entrada) )
-#     entrada = input("Ingrese otro numero para la lista A (presione Z para terminar): ")
+while entrada.lower() != "z": #! Se convierte la entrada en minuscula y luego si no es un string se la convierte a numero con int()
+    lista_A.append( int(entrada) )
+    entrada = input("Ingrese otro numero para la lista A (presione Z para terminar): ")
 
-# for num in range( len(lista_A) ):
-#     numeroB = int(input("Ingrese un numero para la lista B: "))
-#     lista_B.append(numeroB)
+for num in range( len(lista_A) ):
+    numeroB = int(input("Ingrese un numero para la lista B: "))
+    lista_B.append(numeroB)
     
-# for indice_A, indice_B in zip(lista_A, lista_B):
-#     lista_C.append( indice_A + indice_B)
+for indice_A, indice_B in zip(lista_A, lista_B):
+    lista_C.append( indice_A + indice_B)
     
-# print("La lista A es:",lista_A)
-# print("La lista B es:",lista_B)
-# print("La lista C es:",lista_C)
+print("La lista A es:",lista_A)
+print("La lista B es:",lista_B)
+print("La lista C es:",lista_C)
 
-# lista =[]
-# for num_A in lista_A:
-#     if num_A not in lista_B:
-#             lista.append(num_A)
-#             print("el num", num_A, "esta en A pero no en B")
-# print(lista)
+for i in lista_A:
+    esta = 0
+    for j in lista_B:
+        if i == j:
+            esta = 1
+            break
+    if esta == 0:
+        print("El elemento:", i , "no esta en la lista B")
 
 """4. Dado una lista de 10 nombres de personas, realice un programa que cargue la
 lista, la ordene de forma ascendente y la muestre por pantalla ordenado. Python
@@ -79,17 +79,17 @@ nos brinda la función “sorted” para realizar dicho procedimiento, pero la i
 que el ejercicio se resuelva utilizando algoritmia propia de algún método de
 ordenamiento existente."""
 
-lista_nombres = []
+# lista_nombres = []
 
 # for i in range(5):
 #     nombre = input(f"Ingese el nombre nro {i+1}: ")
 #     lista_nombres.append(nombre.lower())
 # print(sorted(lista_nombres))
 
-if 'a' > 'z':
-    print('a')
-else:
-    print('z')
+# if 'a' > 'z':
+#     print('a')
+# else:
+#     print('z')
 
 """5. Escribir un programa que permita cargar y procesar datos de alumnos del ITU en
 una lista de tuplas con la siguiente forma: (nombre, dni, materia). Ejemplo:
