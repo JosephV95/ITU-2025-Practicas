@@ -108,33 +108,47 @@ Hacer un menú iterativo que permita al usuario realizar las siguientes operacio
  Dado el DNI de un alumno, ver las materias que cursa.
  Dada una materia, mostrar la cantidad de alumnos que la cursan. """
 
-lista_materias = []
-materias_cursando = []
-cantidad_de_alumos = 0
+# lista_materias = []
+# materias_cursando = []
+# cantidad_de_alumos = 0
 
-for i in range (3):
-    nombre = input("Ingrese el Nombre: ")
-    dni = int(input("Ingrese el DNI: "))
-    materia = input("Ingrese la Materia: ")
-    lista_materias.append( tuple([nombre.upper(), dni, materia]))
-print(lista_materias)
+# for i in range (3):
+#     nombre = input("Ingrese el Nombre: ")
+#     dni = int(input("Ingrese el DNI: "))
+#     materia = input("Ingrese la Materia: ")
+#     lista_materias.append( tuple([nombre.upper(), dni, materia]))
+# print(lista_materias)
 
-dni_buscar = int(input("Ingrese el DNI a buscar: "))
-for elemento in lista_materias:
-    if elemento[1] == dni_buscar:
-        materias_cursando.append( elemento[2])
-if len(materias_cursando) > 0:
-    print(f"El DNI {dni_buscar} cursa las materias:", materias_cursando )
-else:
-    print(f"El DNI {dni_buscar} no cursa materias")
+# dni_buscar = int(input("Ingrese el DNI a buscar: "))
+# for elemento in lista_materias:
+#     if elemento[1] == dni_buscar:
+#         materias_cursando.append( elemento[2])
+# if len(materias_cursando) > 0:
+#     print(f"El DNI {dni_buscar} cursa las materias:", materias_cursando )
+# else:
+#     print(f"El DNI {dni_buscar} no cursa materias")
     
-materia_buscar = input("Ingrese nombre de la materia: ")
-for materia in lista_materias:
-    if materia[2] == materia_buscar:
-        cantidad_de_alumos += 1
-print(f"La materia {materia_buscar} tiene {cantidad_de_alumos} alumnos.")
+# materia_buscar = input("Ingrese nombre de la materia: ")
+# for materia in lista_materias:
+#     if materia[2] == materia_buscar:
+#         cantidad_de_alumos += 1
+# print(f"La materia {materia_buscar} tiene {cantidad_de_alumos} alumnos.")
+
 """6. Cree un diccionario con los nombres de 5 personas de su familia y sus edades.
 Indicar el integrante más grande y el mas chico. """
+
+familia = {}
+integrante_mayor = 0
+integrante_menor = 0
+
+for i in range(3):
+    nombre = input("Ingrese el nombre: ")
+    edad = int(input("Ingrese la edad: "))
+    
+    familia[nombre] = edad
+print(familia)
+
+print(f"")
 
 """7. Cree un diccionario que contenga el nombre de una ciudad, el país al que pertenece y la cantidad de habitantes que tiene. 
 Hacer un menú iterativo que permita al usuario realizar las siguientes operaciones:
