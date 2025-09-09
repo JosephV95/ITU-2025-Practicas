@@ -82,17 +82,15 @@ ordenamiento existente."""
 lista_nombres = ["maria", "jose", "susana", "Eli", "lucy", "sara", "luna"]
 auxiliar = ""
 
-# for i in range(5):
-#     nombre = input(f"Ingese el nombre nro {i+1}: ")
-#     lista_nombres.append(nombre.lower())
-# print(sorted(lista_nombres))
+"""for i in range(5):
+    nombre = input(f"Ingese el nombre nro {i+1}: ")
+    lista_nombres.append(nombre.lower()) """
 
 for i in range(len(lista_nombres)):
     contador_de_iteracion = 0 #No es necesario ponerlo, solo quiero que cuente la cantidad de cambios por iteracion
     
     for j in range( i+1, len(lista_nombres)):
         # print("Comparo", lista_nombres[i] ,"con", lista_nombres[j])
-        
         if lista_nombres[i].upper() > lista_nombres[j].upper(): #! El sistema lee las palabras como numeros, es decir se pueden comparar
             auxiliar = lista_nombres[i]
             lista_nombres[i] = lista_nombres[j].upper()
@@ -103,22 +101,20 @@ for i in range(len(lista_nombres)):
     print(f"En la iteracion nro {i+1} se hicieron {contador_de_iteracion} cambios")
 print ("La lista final ordenada queda asi:" , lista_nombres)
         
-    
-
-"""5. Escribir un programa que permita cargar y procesar datos de alumnos del ITU en
-una lista de tuplas con la siguiente forma: (nombre, dni, materia). Ejemplo:
-[(“Manuel Juarez”, 19823451, “Matematica”), (“Silvana Paredes”, 22709128,
-“Programacion”), (“Rosa Ortiz”, 15123978, “Redes”), (“Luciana Hernandez”,
-38981374, “Programacion”)]. Hacer un menú iterativo que permita al usuario
-realizar las siguientes operaciones:
+"""5. Escribir un programa que permita cargar y procesar datos de alumnos del ITU en una lista de tuplas con la 
+siguiente forma: (nombre, dni, materia). Ejemplo:[(“Manuel Juarez”, 19823451, “Matematica”), (“Silvana Paredes”, 22709128, “Programacion”), 
+(“Rosa Ortiz”, 15123978, “Redes”), (“Luciana Hernandez”, 38981374, “Programacion”)]. 
+Hacer un menú iterativo que permita al usuario realizar las siguientes operaciones:
  Agregar alumnos a la lista.
  Dado el DNI de un alumno, ver las materias que cursa.
- Dada una materia, mostrar la cantidad de alumnos que la cursan.
-6. Cree un diccionario con los nombres de 5 personas de su familia y sus edades.
-Indicar el integrante más grande y el mas chico.
-7. Cree un diccionario que contenga el nombre de una ciudad, el país al que
-pertenece y la cantidad de habitantes que tiene. Hacer un menú iterativo que
-permita al usuario realizar las siguientes operaciones:
+ Dada una materia, mostrar la cantidad de alumnos que la cursan. """
+
+
+"""6. Cree un diccionario con los nombres de 5 personas de su familia y sus edades.
+Indicar el integrante más grande y el mas chico. """
+
+"""7. Cree un diccionario que contenga el nombre de una ciudad, el país al que pertenece y la cantidad de habitantes que tiene. 
+Hacer un menú iterativo que permita al usuario realizar las siguientes operaciones:
  Agregar ciudades
  Eliminar ciudades
  Indicar la cantidad de habitantes en un país en particular
