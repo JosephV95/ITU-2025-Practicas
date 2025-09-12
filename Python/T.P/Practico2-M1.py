@@ -138,17 +138,27 @@ Hacer un menú iterativo que permita al usuario realizar las siguientes operacio
 Indicar el integrante más grande y el mas chico. """
 
 familia = {}
-integrante_mayor = 0
-integrante_menor = 0
+edad_mayor = 0
+nombre_mayor = ""
+edad_menor = 300
+nombre_menor = ""
 
 for i in range(3):
     nombre = input("Ingrese el nombre: ")
     edad = int(input("Ingrese la edad: "))
     
     familia[nombre] = edad
-print(familia)
 
-print(f"")
+for nombre, edad in familia.items():
+    if edad > edad_mayor:
+        edad_mayor = edad
+        nombre_mayor = nombre
+    if edad < edad_menor:
+        edad_menor = edad
+        nombre_menor = nombre
+        
+print(f"El integrante con mayor edad es {nombre_mayor} con {edad_mayor} años de edad.")
+print(f"El integrante con menor edad es {nombre_menor} con {edad_menor} años de edad.")
 
 """7. Cree un diccionario que contenga el nombre de una ciudad, el país al que pertenece y la cantidad de habitantes que tiene. 
 Hacer un menú iterativo que permita al usuario realizar las siguientes operaciones:
