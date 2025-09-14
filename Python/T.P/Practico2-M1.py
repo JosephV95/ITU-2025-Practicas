@@ -18,6 +18,8 @@ sean menores que el número dado. Imprimir esta nueva lista, iterando por ella."
 #     if num < numero2:
 #         listaFinal.append(num)
 
+# print(f"La lista inicial de numeros es: {listaNumeros}")
+# print(f"Los numeros menores a {numero2} son:")
 # for i in listaFinal:
 #     print(i)
 
@@ -112,27 +114,43 @@ Hacer un menú iterativo que permita al usuario realizar las siguientes operacio
 # materias_cursando = []
 # cantidad_de_alumos = 0
 
-# for i in range (3):
-#     nombre = input("Ingrese el Nombre: ")
-#     dni = int(input("Ingrese el DNI: "))
-#     materia = input("Ingrese la Materia: ")
-#     lista_materias.append( tuple([nombre.upper(), dni, materia]))
-# print(lista_materias)
-
-# dni_buscar = int(input("Ingrese el DNI a buscar: "))
-# for elemento in lista_materias:
-#     if elemento[1] == dni_buscar:
-#         materias_cursando.append( elemento[2])
-# if len(materias_cursando) > 0:
-#     print(f"El DNI {dni_buscar} cursa las materias:", materias_cursando )
-# else:
-#     print(f"El DNI {dni_buscar} no cursa materias")
-    
-# materia_buscar = input("Ingrese nombre de la materia: ")
-# for materia in lista_materias:
-#     if materia[2] == materia_buscar:
-#         cantidad_de_alumos += 1
-# print(f"La materia {materia_buscar} tiene {cantidad_de_alumos} alumnos.")
+# opcion = 0
+# while opcion !=4:
+#     print("Ingrese una de las siguientes opciones: ")
+#     print("1 - AGREGAR alumno: ")
+#     print("2 - Ver MATERIAS segun el DNI: ")
+#     print("3 - Ver ALUMNOS por MATERIA: ")
+#     print("4 - Cancelar")
+#     opcion = int(input("Ingrese su OPCION: "))
+                 
+#     match opcion:
+#         case 1:
+#             nombre = input("Ingrese el Nombre: ")
+#             dni = int(input("Ingrese el DNI: "))
+#             materia = input("Ingrese la Materia: ")
+#             lista_materias.append( tuple([nombre.upper(), dni, materia]))
+#             print(lista_materias)
+        
+#         case 2:
+#             dni_buscar = int(input("Ingrese el DNI a buscar: "))
+#             for elemento in lista_materias:
+#                 if elemento[1] == dni_buscar:
+#                     materias_cursando.append( elemento[2])
+#             if len(materias_cursando) > 0:
+#                 print(f"El DNI {dni_buscar} cursa las materias:", materias_cursando )
+#             else:
+#                 print(f"El DNI {dni_buscar} no cursa materias")
+                
+#         case 3:
+#             materia_buscar = input("Ingrese nombre de la materia: ")
+#             for materia in lista_materias:
+#                 if materia[2] == materia_buscar:
+#                     cantidad_de_alumos += 1
+#             print(f"La materia {materia_buscar} tiene {cantidad_de_alumos} alumnos.")
+#         case 4:
+#             break
+#         case _:
+#             print("OPCION INVALIDA")
 
 """6. Cree un diccionario con los nombres de 5 personas de su familia y sus edades.
 Indicar el integrante más grande y el mas chico. """
@@ -167,93 +185,93 @@ Hacer un menú iterativo que permita al usuario realizar las siguientes operacio
 3 Indicar la cantidad de habitantes en un país en particular
 4 El porcentaje de habitantes en una ciudad de acuerdo al total registrado """
 
-ciudades = {
-    "mendoza": {"habitantes": 700,
-                "pais": "argentina"},
-    "rio": {"habitantes": 500,
-                "pais": "brazil"},
-    "cordoba": {"habitantes": 500,
-                "pais": "argentina"},
-    "san juan": {"habitantes": 1000,
-                "pais": "argentina"},
-    "brasilia": {"habitantes": 2000,
-                "pais": "brazil"},
-    "jujuy": {"habitantes": 900,
-                "pais": "argentina"},
-}
-opcion = 0
+# ciudades = {
+#     "mendoza": {"habitantes": 700,
+#                 "pais": "argentina"},
+#     "rio": {"habitantes": 500,
+#                 "pais": "brazil"},
+#     "cordoba": {"habitantes": 500,
+#                 "pais": "argentina"},
+#     "san juan": {"habitantes": 1000,
+#                 "pais": "argentina"},
+#     "brasilia": {"habitantes": 2000,
+#                 "pais": "brazil"},
+#     "jujuy": {"habitantes": 900,
+#                 "pais": "argentina"},
+# }
+# opcion = 0
 
-while opcion !=5:
-    print("Ingrese una de las siguientes acciones: ")
-    print("1 - AGREGAR ciudad")
-    print("2 - ELIMINAR ciudad")
-    print("3 - VER HABITANTES por país")
-    print("4 - VER PORCENTAJE de habitantes de ciudad segun pais")
-    print("5 - Cancelar")
+# while opcion !=5:
+#     print("Ingrese una de las siguientes acciones: ")
+#     print("1 - AGREGAR ciudad")
+#     print("2 - ELIMINAR ciudad")
+#     print("3 - VER HABITANTES por país")
+#     print("4 - VER PORCENTAJE de habitantes de ciudad segun pais")
+#     print("5 - Cancelar")
     
-    opcion = int(input("Ingrese su OPCION: "))
+#     opcion = int(input("Ingrese su OPCION: "))
     
-    match opcion:
-        case 1:
-            ciudad = input("Ingrese nombre de CIUDAD para AGREGAR: ")
-            ciudad_info = {}
-            nro_habitantes = int(input("Ingrese NUMERO de HABITANTES: "))
-            nombre_pais = input("Ingrese el PAIS de la ciudad: ")
+#     match opcion:
+#         case 1:
+#             ciudad = input("Ingrese nombre de CIUDAD para AGREGAR: ")
+#             ciudad_info = {}
+#             nro_habitantes = int(input("Ingrese NUMERO de HABITANTES: "))
+#             nombre_pais = input("Ingrese el PAIS de la ciudad: ")
             
-            ciudad_info["habitantes"] = nro_habitantes
-            ciudad_info["pais"] = nombre_pais.lower()
+#             ciudad_info["habitantes"] = nro_habitantes
+#             ciudad_info["pais"] = nombre_pais.lower()
             
-            ciudades[ciudad.lower()] = ciudad_info
+#             ciudades[ciudad.lower()] = ciudad_info
                         
-        case 2:
-            ciudad_eliminar = input("Ingrese la ciudad a ELIMINAR: ").lower()
-            encontrada = 0
-            for ciudad in ciudades:
-                if ciudad == ciudad_eliminar:
-                    encontrada = 1
-                    break
-            if encontrada == 1:
-                ciudades.pop(ciudad_eliminar)
-                print(ciudades , "\n")
-            else:            
-                print(f"La ciudad {ciudad_eliminar} no esta registrada. \n")
+#         case 2:
+#             ciudad_eliminar = input("Ingrese la ciudad a ELIMINAR: ").lower()
+#             encontrada = 0
+#             for ciudad in ciudades:
+#                 if ciudad == ciudad_eliminar:
+#                     encontrada = 1
+#                     break
+#             if encontrada == 1:
+#                 ciudades.pop(ciudad_eliminar)
+#                 print(ciudades , "\n")
+#             else:            
+#                 print(f"La ciudad {ciudad_eliminar} no esta registrada. \n")
                         
-        case 3:
-            pais = input("Ingrese nombre de PAIS para ver sus HABITANTES: ")
-            contador = 0
+#         case 3:
+#             pais = input("Ingrese nombre de PAIS para ver sus HABITANTES: ")
+#             contador = 0
             
-            for ciudad, valores in ciudades.items():
-                if valores["pais"] == pais.lower():
-                    contador += valores["habitantes"]
-                    print (f"El Pais {pais.upper()} tiene {contador} de habitantes. \n")
-                else:
-                    print(f"El pais {pais.upper()} no esta en la lista")
+#             for ciudad, valores in ciudades.items():
+#                 if valores["pais"] == pais.lower():
+#                     contador += valores["habitantes"]
+#                     print (f"El Pais {pais.upper()} tiene {contador} de habitantes. \n")
+#                 else:
+#                     print(f"El pais {pais.upper()} no esta en la lista")
             
-        case 4:
-            ciudad_ver = input("Ingrese CIUDAD para ver el PORCENTAJE DE HABITANTES: ").lower()
-            habitantes_ciudad = 0
-            pais_a_buscar = ""
-            habitantes_pais = 0
+#         case 4:
+#             ciudad_ver = input("Ingrese CIUDAD para ver el PORCENTAJE DE HABITANTES: ").lower()
+#             habitantes_ciudad = 0
+#             pais_a_buscar = ""
+#             habitantes_pais = 0
             
-            for clave, valor in ciudades.items():
-                if clave == ciudad_ver:
-                    habitantes_ciudad = valor["habitantes"]
-                    pais_a_buscar = valor["pais"]
+#             for clave, valor in ciudades.items():
+#                 if clave == ciudad_ver:
+#                     habitantes_ciudad = valor["habitantes"]
+#                     pais_a_buscar = valor["pais"]
             
-                    for ciudad, valores in ciudades.items():
-                        if valores["pais"] == pais_a_buscar:
-                            habitantes_pais += valores["habitantes"]
+#                     for ciudad, valores in ciudades.items():
+#                         if valores["pais"] == pais_a_buscar:
+#                             habitantes_pais += valores["habitantes"]
                             
-                    cantidad_final = habitantes_ciudad * 100 / habitantes_pais
+#                     cantidad_final = habitantes_ciudad * 100 / habitantes_pais
                     
-                    print(f"La ciudad {ciudad_ver.upper()} tiene el {cantidad_final :.2f}% de los habitantes del pais {pais_a_buscar.upper()} \n")
+#                     print(f"La ciudad {ciudad_ver.upper()} tiene el {cantidad_final :.2f}% de los habitantes del pais {pais_a_buscar.upper()} \n")
             
-            #! PYTHON PERMITE USAR FOR .. ELSE o WHILE... ELSE se ejecuta cuando no hubo respuesta de las iteraciones
-            else:
-                print(f"La ciudad {ciudad_ver.upper()} no esta registrada \n")
+#             #! PYTHON PERMITE USAR FOR .. ELSE o WHILE... ELSE se ejecuta cuando no hubo respuesta de las iteraciones
+#             else:
+#                 print(f"La ciudad {ciudad_ver.upper()} no esta registrada \n")
 
-        case 5:
-            break
+#         case 5:
+#             break
         
-        case default:
-            print("OPCION INVALIDA")
+#         case default:
+#             print("OPCION INVALIDA")
