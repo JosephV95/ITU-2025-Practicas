@@ -137,28 +137,28 @@ Hacer un menú iterativo que permita al usuario realizar las siguientes operacio
 """6. Cree un diccionario con los nombres de 5 personas de su familia y sus edades.
 Indicar el integrante más grande y el mas chico. """
 
-familia = {}
-edad_mayor = 0
-nombre_mayor = ""
-edad_menor = 300
-nombre_menor = ""
+# familia = {}
+# edad_mayor = 0
+# nombre_mayor = ""
+# edad_menor = 300
+# nombre_menor = ""
 
-for i in range(3):
-    nombre = input("Ingrese el nombre: ")
-    edad = int(input("Ingrese la edad: "))
+# for i in range(3):
+#     nombre = input("Ingrese el nombre: ")
+#     edad = int(input("Ingrese la edad: "))
     
-    familia[nombre] = edad
+#     familia[nombre] = edad
 
-for nombre, edad in familia.items():
-    if edad > edad_mayor:
-        edad_mayor = edad
-        nombre_mayor = nombre
-    if edad < edad_menor:
-        edad_menor = edad
-        nombre_menor = nombre
+# for nombre, edad in familia.items():
+#     if edad > edad_mayor:
+#         edad_mayor = edad
+#         nombre_mayor = nombre
+#     if edad < edad_menor:
+#         edad_menor = edad
+#         nombre_menor = nombre
         
-print(f"El integrante con mayor edad es {nombre_mayor} con {edad_mayor} años de edad.")
-print(f"El integrante con menor edad es {nombre_menor} con {edad_menor} años de edad.")
+# print(f"El integrante con mayor edad es {nombre_mayor} con {edad_mayor} años de edad.")
+# print(f"El integrante con menor edad es {nombre_menor} con {edad_menor} años de edad.")
 
 """7. Cree un diccionario que contenga el nombre de una ciudad, el país al que pertenece y la cantidad de habitantes que tiene. 
 Hacer un menú iterativo que permita al usuario realizar las siguientes operaciones:
@@ -166,3 +166,81 @@ Hacer un menú iterativo que permita al usuario realizar las siguientes operacio
  Eliminar ciudades
  Indicar la cantidad de habitantes en un país en particular
  El porcentaje de habitantes en una ciudad de acuerdo al total registrado """
+
+ciudades = {
+    "mendoza": {"habitantes": 700,
+                "pais": "argentina"},
+    "rio": {"habitantes": 500,
+                "pais": "brazil"},
+    "cordoba": {"habitantes": 500,
+                "pais": "argentina"},
+    "san juan": {"habitantes": 1000,
+                "pais": "argentina"},
+    "brasilia": {"habitantes": 2000,
+                "pais": "brazil"},
+    "jujuy": {"habitantes": 900,
+                "pais": "argentina"},
+}
+opcion = 0
+
+while opcion !=5:
+    print("Ingrese una de las siguientes acciones: ")
+    print("1 - AGREGAR ciudad")
+    print("2 - ELIMINAR ciudad")
+    print("3 - VER HABITANTES por país")
+    print("4 - VER PORCENTAJE de habitantes de ciudad segun pais")
+    print("5 - Cancelar")
+    
+    opcion = int(input("Ingrese su OPCION: "))
+    
+    match opcion:
+        case 1:
+            ciudad = input("Ingrese nombre de CIUDAD para AGREGAR: ")
+            ciudad_info = {}
+            nro_habitantes = int(input("Ingrese NUMERO de HABITANTES: "))
+            nombre_pais = input("Ingrese el PAIS de la ciudad: ")
+            
+            ciudad_info["habitantes"] = nro_habitantes
+            ciudad_info["pais"] = nombre_pais.lower()
+            
+            ciudades[ciudad.lower()] = ciudad_info
+                        
+        case 2:
+            ciudad_eliminar = input("Ingrese la ciudad a ELIMINAR: ")
+            ciudades.pop(ciudad_eliminar.lower())
+            print(ciudades , "\n")
+            
+        case 3:
+            pais = input("Ingrese nombre de PAIS para ver sus HABITANTES: ")
+            contador = 0
+            
+            for ciudad, valores in ciudades.items():
+                if valores["pais"] == pais.lower():
+                    contador += valores["habitantes"]
+                    
+            print (f"El Pais {pais.upper()} tiene {contador} de habitantes. \n")
+            
+        case 4:
+            ciudad_ver = input("Ingrese CIUDAD para ver el PORCENTAJE DE HABITANTES: ").lower()
+            habitantes_ciudad = 0
+            pais_a_buscar = ""
+            habitantes_pais = 0
+            
+            for clave, valor in ciudades.items():
+                if clave == ciudad_ver:
+                    habitantes_ciudad = valor["habitantes"]
+                    pais_a_buscar = valor["pais"]
+            
+            for ciudad, valores in ciudades.items():
+                if valores["pais"] == pais_a_buscar:
+                    habitantes_pais += valores["habitantes"]
+                    
+            cantidad_final = habitantes_ciudad * 100 / habitantes_pais
+            
+            print(f"La ciudad {ciudad_ver.upper()} tiene el {cantidad_final :.2f}% de los habitantes del pais {pais_a_buscar.upper()} \n")
+
+        case 5:
+            break
+        
+        case default:
+            print("OPCION INVALIDA")
