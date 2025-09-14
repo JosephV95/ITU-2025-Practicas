@@ -162,10 +162,10 @@ Indicar el integrante más grande y el mas chico. """
 
 """7. Cree un diccionario que contenga el nombre de una ciudad, el país al que pertenece y la cantidad de habitantes que tiene. 
 Hacer un menú iterativo que permita al usuario realizar las siguientes operaciones:
- Agregar ciudades
- Eliminar ciudades
- Indicar la cantidad de habitantes en un país en particular
- El porcentaje de habitantes en una ciudad de acuerdo al total registrado """
+1 Agregar ciudades
+2 Eliminar ciudades
+3 Indicar la cantidad de habitantes en un país en particular
+4 El porcentaje de habitantes en una ciudad de acuerdo al total registrado """
 
 ciudades = {
     "mendoza": {"habitantes": 700,
@@ -206,10 +206,18 @@ while opcion !=5:
             ciudades[ciudad.lower()] = ciudad_info
                         
         case 2:
-            ciudad_eliminar = input("Ingrese la ciudad a ELIMINAR: ")
-            ciudades.pop(ciudad_eliminar.lower())
-            print(ciudades , "\n")
-            
+            ciudad_eliminar = input("Ingrese la ciudad a ELIMINAR: ").lower()
+            encontrada = 0
+            for ciudad in ciudades:
+                if ciudad == ciudad_eliminar:
+                    encontrada = 1
+                    break
+            if encontrada == 1:
+                ciudades.pop(ciudad_eliminar)
+                print(ciudades , "\n")
+            else:            
+                print(f"La ciudad {ciudad_eliminar} no esta registrada. \n")
+                        
         case 3:
             pais = input("Ingrese nombre de PAIS para ver sus HABITANTES: ")
             contador = 0
@@ -217,8 +225,9 @@ while opcion !=5:
             for ciudad, valores in ciudades.items():
                 if valores["pais"] == pais.lower():
                     contador += valores["habitantes"]
-                    
-            print (f"El Pais {pais.upper()} tiene {contador} de habitantes. \n")
+                    print (f"El Pais {pais.upper()} tiene {contador} de habitantes. \n")
+                else:
+                    print(f"El pais {pais.upper()} no esta en la lista")
             
         case 4:
             ciudad_ver = input("Ingrese CIUDAD para ver el PORCENTAJE DE HABITANTES: ").lower()
@@ -231,13 +240,17 @@ while opcion !=5:
                     habitantes_ciudad = valor["habitantes"]
                     pais_a_buscar = valor["pais"]
             
-            for ciudad, valores in ciudades.items():
-                if valores["pais"] == pais_a_buscar:
-                    habitantes_pais += valores["habitantes"]
+                    for ciudad, valores in ciudades.items():
+                        if valores["pais"] == pais_a_buscar:
+                            habitantes_pais += valores["habitantes"]
+                            
+                    cantidad_final = habitantes_ciudad * 100 / habitantes_pais
                     
-            cantidad_final = habitantes_ciudad * 100 / habitantes_pais
+                    print(f"La ciudad {ciudad_ver.upper()} tiene el {cantidad_final :.2f}% de los habitantes del pais {pais_a_buscar.upper()} \n")
             
-            print(f"La ciudad {ciudad_ver.upper()} tiene el {cantidad_final :.2f}% de los habitantes del pais {pais_a_buscar.upper()} \n")
+            #! PYTHON PERMITE USAR FOR .. ELSE o WHILE... ELSE se ejecuta cuando no hubo respuesta de las iteraciones
+            else:
+                print(f"La ciudad {ciudad_ver.upper()} no esta registrada \n")
 
         case 5:
             break
