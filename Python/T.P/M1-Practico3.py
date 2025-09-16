@@ -1,26 +1,39 @@
 """ 1. Escriba una función en Python que indique si un número está en un determinado rango de numeros. Ej.:
     Entrada: valor=3; lim_inferior=2; lim_superior=5
     Salida: True """
-numero = int(input("Ingrese un numero: "))
-lim_inferior = int(input("Ingrese el limite inferior: "))
-lim_superior = int(input("Ingrese el limite superior: "))
+# numero = int(input("Ingrese un numero: "))
+# lim_inferior = int(input("Ingrese el limite inferior: "))
+# lim_superior = int(input("Ingrese el limite superior: "))
 
-def verificador_de_numero(parametro1, parametro2, parametro3):
-    for num in range( parametro2, parametro3+1):
-        if num == parametro1:
-            return True
+# def verificador_de_numero(parametro1, parametro2, parametro3):
+#     for num in range( parametro2, parametro3+1):
+#         if num == parametro1:
+#             return True
        
-numero_esta_en_rango = verificador_de_numero(numero, lim_inferior, lim_superior)
-if numero_esta_en_rango:
-    print(f"\nEl numero {numero} SI esta en el rango {lim_inferior}-{lim_superior}")
-else: 
-    print(f"\nEl numero {numero} NO esta en el rango {lim_inferior}-{lim_superior}")
-
+# numero_esta_en_rango = verificador_de_numero(numero, lim_inferior, lim_superior)
+# if numero_esta_en_rango:
+#     print(f"\nEl numero {numero} SI esta en el rango {lim_inferior}-{lim_superior}")
+# else: 
+#     print(f"\nEl numero {numero} NO esta en el rango {lim_inferior}-{lim_superior}")
 
 """2. Escriba una función en Python que indique si un número es perfecto. Utilice una función auxiliar que calcule los 
 divisores propios. Nota: Un número perfecto es un número entero positivo que es igual a la suma de sus divisores positivos.
 Ej.:  Entrada: 6 (1+2+3)
       Salida: True  """
+      
+def calculo_num_perfecto( param1 ):
+    suma_divisores = 0
+    for i in range( 1, param1 ):
+        if param1 % i == 0:
+            suma_divisores += i
+    if suma_divisores == param1:
+        return True
+    
+numero = int(input("Ingrese un numero: "))
+if calculo_num_perfecto(numero) == True:
+    print(f"\nEl numero {numero} ES perfecto")
+else: 
+    print(f"\nEl numero {numero} NO ES perfecto")
 
 """3. Escriba una función en Python que reciba como parámetro una frase y 1
 carácter, y devuelva si ese carácter se encuentra dentro de la frase. Además de
