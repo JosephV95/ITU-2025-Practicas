@@ -39,7 +39,25 @@ Ej.:  Entrada: 6 (1+2+3)
 carácter, y devuelva si ese carácter se encuentra dentro de la frase. Además de
 ello, la función debe poder indicar la cantidad de palabras que hay en la frase.  """
 
+frase = input("Ingrese una frase: ")
+palabra = input("Ingrese una palabra a buscar: ")
 
+def funcion_verificadora (param_lista, param_palabra):
+    palabra_esta = False
+    contador_de_palabras = len(param_lista.split())
+    
+    for i in param_lista.split():
+        if i == param_palabra:
+            palabra_esta = True
+    return [palabra_esta, contador_de_palabras]
+
+verificador = funcion_verificadora( frase, palabra)
+if verificador[0] :
+    print(f"\nLa palabra '{palabra}' si esta en la frase.")
+    print(f"Y la frase tiene {verificador[1]} palabras en total")
+else:
+    print(f"\nLa palabra '{palabra}' NO esta en la frase.")
+    print(f"Y la frase tiene {verificador[1]} palabras en total")
 
 """4. Escriba una función en Python que reciba una lista de valores enteros y devuelva
 otra lista sólo con aquellos valores pares.
