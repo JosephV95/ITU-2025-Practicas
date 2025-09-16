@@ -21,29 +21,33 @@ divisores propios. Nota: Un número perfecto es un número entero positivo que e
 Ej.:  Entrada: 6 (1+2+3)
       Salida: True  """
       
-def calculo_num_perfecto( param1 ):
-    suma_divisores = 0
-    for i in range( 1, param1 ):
-        if param1 % i == 0:
-            suma_divisores += i
-    if suma_divisores == param1:
-        return True
+# def calculo_num_perfecto( param1 ):
+#     suma_divisores = 0
+#     for i in range( 1, param1 ):
+#         if param1 % i == 0:
+#             suma_divisores += i
+#     if suma_divisores == param1:
+#         return True
     
-numero = int(input("Ingrese un numero: "))
-if calculo_num_perfecto(numero) == True:
-    print(f"\nEl numero {numero} ES perfecto")
-else: 
-    print(f"\nEl numero {numero} NO ES perfecto")
+# numero = int(input("Ingrese un numero: "))
+# if calculo_num_perfecto(numero) == True:
+#     print(f"\nEl numero {numero} ES perfecto")
+# else: 
+#     print(f"\nEl numero {numero} NO ES perfecto")
 
 """3. Escriba una función en Python que reciba como parámetro una frase y 1
 carácter, y devuelva si ese carácter se encuentra dentro de la frase. Además de
 ello, la función debe poder indicar la cantidad de palabras que hay en la frase.  """
+
+
 
 """4. Escriba una función en Python que reciba una lista de valores enteros y devuelva
 otra lista sólo con aquellos valores pares.
 Ej.:
 Entrada: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 Salida: [2, 4, 6, 8]    """
+
+
 """5. Escribir una función que reciba una frase y devuelva un diccionario con las
 palabras que contiene y su longitud. """
 """6. Los empleados de una fábrica trabajan en dos turnos, Diurno y Nocturno. Se
