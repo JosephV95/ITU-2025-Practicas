@@ -49,15 +49,17 @@ def funcion_verificadora (param_lista, param_palabra):
     for i in param_lista.split():
         if i == param_palabra:
             palabra_esta = True
-    return [palabra_esta, contador_de_palabras]
+            break
+    return {"esta":palabra_esta, "nro_palabras": contador_de_palabras}
 
 verificador = funcion_verificadora( frase, palabra)
-if verificador[0] :
+
+if verificador["esta"] :
     print(f"\nLa palabra '{palabra}' si esta en la frase.")
-    print(f"Y la frase tiene {verificador[1]} palabras en total")
+    print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
 else:
     print(f"\nLa palabra '{palabra}' NO esta en la frase.")
-    print(f"Y la frase tiene {verificador[1]} palabras en total")
+    print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
 
 """4. Escriba una función en Python que reciba una lista de valores enteros y devuelva
 otra lista sólo con aquellos valores pares.
