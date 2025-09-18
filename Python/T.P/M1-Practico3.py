@@ -106,46 +106,88 @@ Salida: [2, 4, 6, 8]    """
 """5. Escribir una función que reciba una frase y devuelva un diccionario con las
 palabras que contiene y su longitud. """
 
-def funcion_diccionario_palabras(param_frase):
-    diccionario_palabras= {}
-    contador_caracteres = 0
-    palabra_formada = ""
+# def funcion_diccionario_palabras(param_frase):
+#     diccionario_palabras= {}
+#     contador_caracteres = 0
+#     palabra_formada = ""
     
-    for c in param_frase:
-        #? Abreviado seria  if c in " ,." Y para hacerlo al reves y que pregunte si c!= "" and c!="." and c!="," abreviado c in not " ,."
-        if c == " " or c == "," or c == ".":  
-            if len(palabra_formada) > 0:
-                diccionario_palabras[palabra_formada] = contador_caracteres
-                palabra_formada = ""
-                contador_caracteres = 0
+#     for c in param_frase:
+#         #? Abreviado seria  if c in " ,." Y para hacerlo al reves y que pregunte si c!= "" and c!="." and c!="," abreviado c in not " ,."
+#         if c == " " or c == "," or c == ".":  
+#             if len(palabra_formada) > 0:
+#                 diccionario_palabras[palabra_formada] = contador_caracteres
+#                 palabra_formada = ""
+#                 contador_caracteres = 0
         
-        else :
-            contador_caracteres += 1
-            palabra_formada += c
+#         else :
+#             contador_caracteres += 1
+#             palabra_formada += c
         
-    #! Por si la frase no termina en espacio o punto
-    if len(palabra_formada) > 0:
-        diccionario_palabras[palabra_formada] = contador_caracteres
+#     #! Por si la frase no termina en espacio o punto
+#     if len(palabra_formada) > 0:
+#         diccionario_palabras[palabra_formada] = contador_caracteres
     
-    return diccionario_palabras
+#     return diccionario_palabras
 
-frase = input("Ingrese su frase: ")
-diccionario_final = funcion_diccionario_palabras(frase)
-print(f"\nEl Diccionario formado es: \n{diccionario_final}")
+# frase = input("Ingrese su frase: ")
+# diccionario_final = funcion_diccionario_palabras(frase)
+# print(f"\nEl Diccionario formado es: \n{diccionario_final}")
 
 """6. Los empleados de una fábrica trabajan en dos turnos, Diurno y Nocturno. Se
 desea calcular el jornal diario de acuerdo a las siguientes reglas:
  La tarifa de las horas diurnas es de $350
  La tarifa de las horas nocturnas es de $400
- En caso de ser festivo, la tarifa se incrementa en un 10% en caso de turno
-diurno y en un 15% para el nocturno.
-Desarrolle una función que permita ingresar por teclado la siguiente información
-para, al menos, 2 empleados, nombre del trabajador, el número de horas
-trabajadas, el turno y el tipo de día (“Festivo”, “Laborable”), para ello se podría
-utilizar 1 “diccionario” para registrar la información y si los datos ingresados
-son correctos llamar a otra función que realice el cálculo del sueldo a cobrar en
-ese día. Mostrar por pantalla los datos ingresados y el sueldo calculado para cada
-empleado.  """
+ En caso de ser festivo, la tarifa se incrementa en un 10% en caso de turno diurno y en un 15% para el nocturno.
+
+Desarrolle una función que permita ingresar por teclado la siguiente información para, al menos, 2 empleados, nombre del trabajador,
+el número de horas trabajadas, el turno y el tipo de día (“Festivo”, “Laborable”), para ello se podría utilizar 1 “diccionario” 
+para registrar la información y si los datos ingresados son correctos llamar a otra función que realice el cálculo del sueldo a cobrar 
+en ese día. Mostrar por pantalla los datos ingresados y el sueldo calculado para cada empleado.  """
+
+dicc_emplados = [
+    {"nombre": "Martin", "horas_trabajadas": 5, "turno": "d", "dia": "f"},
+    {"nombre": "Sara", "horas_trabajadas": 8, "turno": "n", "dia": "l"}
+]
+def funcion_calcular_salario (param_lista_empleados):
+    for empleado in param_lista_empleados:
+        salario_calculado = 0
+        
+        if empleado[("turno").lower()] == "d":
+            salario_calculado = 350 * empleado["horas_trabajadas"]
+        elif empleado[("turno").lower()] == "n": 
+            salario_calculado = 400 * empleado["horas_trabajadas"]
+        
+        if empleado[("dia").lower()] == "l":
+            salario_calculado *= 1.1
+        elif empleado[("dia").lower()] == "f":
+            salario_calculado *= 1.15
+            
+        empleado["salario"] = f"{salario_calculado:.2f}"
+    
+    return param_lista_empleados
+    
+
+print(funcion_calcular_salario(dicc_emplados))
+    
+# opcion = 0
+# while opcion != 3:
+#     print("Seleccione una opcion:")
+#     print("1 - Agregar Empleado.")
+#     print("2 - Ver salario de empleados")
+#     print("3 - Terminar")
+#     match opcion:
+#         case 1:
+#             nombre = input("Ingrese el nombre: ")
+#             horas = int(input("Ingrese horas trabajadas: "))
+#             turno = input("Ingrese turno D (diurno) o N (noche): ")
+#             dia = input("Ingrese el tipo de dia, F (festivo) - L (laborable): ")
+#         case 2:
+#             print("")
+#         case 3:
+#             break
+#         case _:
+#             print("OPCION INVALIDA")
+            
 
 """ 7. Realice el ejercicio 5 del practico número 2 (listas de tuplas), pero
 implementando la/s función/es necesaria/s.  """
