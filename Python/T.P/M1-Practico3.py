@@ -144,49 +144,53 @@ el número de horas trabajadas, el turno y el tipo de día (“Festivo”, “La
 para registrar la información y si los datos ingresados son correctos llamar a otra función que realice el cálculo del sueldo a cobrar 
 en ese día. Mostrar por pantalla los datos ingresados y el sueldo calculado para cada empleado.  """
 
-dicc_emplados = [
-    {"nombre": "Martin", "horas_trabajadas": 5, "turno": "d", "dia": "f"},
-    {"nombre": "Sara", "horas_trabajadas": 8, "turno": "n", "dia": "l"}
+lista_emplados = [
+    {"nombre": "Martin", "horas_trabajadas": 5, "turno": "diurno", "dia": "festivo"},
+    {"nombre": "Sara", "horas_trabajadas": 8, "turno": "noche", "dia": "laboral"}
 ]
 def funcion_calcular_salario (param_lista_empleados):
     for empleado in param_lista_empleados:
         salario_calculado = 0
         
-        if empleado[("turno").lower()] == "d":
+        if empleado["turno"][0] == "d":
             salario_calculado = 350 * empleado["horas_trabajadas"]
-        elif empleado[("turno").lower()] == "n": 
+        elif empleado["turno"][0] == "n": 
             salario_calculado = 400 * empleado["horas_trabajadas"]
         
-        if empleado[("dia").lower()] == "l":
+        if empleado["dia"][0] == "l":
             salario_calculado *= 1.1
-        elif empleado[("dia").lower()] == "f":
+        elif empleado["dia"][0] == "f":
             salario_calculado *= 1.15
             
-        empleado["salario"] = f"{salario_calculado:.2f}"
+        empleado["salario"] = round(salario_calculado, 2) # funcion para redondear decimales
     
     return param_lista_empleados
     
 
-print(funcion_calcular_salario(dicc_emplados))
-    
-# opcion = 0
-# while opcion != 3:
-#     print("Seleccione una opcion:")
-#     print("1 - Agregar Empleado.")
-#     print("2 - Ver salario de empleados")
-#     print("3 - Terminar")
-#     match opcion:
-#         case 1:
-#             nombre = input("Ingrese el nombre: ")
-#             horas = int(input("Ingrese horas trabajadas: "))
-#             turno = input("Ingrese turno D (diurno) o N (noche): ")
-#             dia = input("Ingrese el tipo de dia, F (festivo) - L (laborable): ")
-#         case 2:
-#             print("")
-#         case 3:
-#             break
-#         case _:
-#             print("OPCION INVALIDA")
+opcion = 0
+while opcion != 3:
+    print("Seleccione una opcion:")
+    print("1 - Agregar Empleado.")
+    print("2 - Ver salario de empleados")
+    print("3 - Terminar")
+    opcion = int(input("INGRESE SU OPCION: "))
+    match opcion:
+        case 1:
+            nombre = input("Ingrese el nombre: ")
+            horas = int(input("Ingrese horas trabajadas: "))
+            turno = input("Ingrese turno D (diurno) o N (noche): ")
+            dia = input("Ingrese el tipo de dia, F (festivo) - L (laboral): ")
+            lista_emplados.append({
+                "nombre": nombre, "horas_trabajadas": horas, "turno": turno, "dia": dia
+            })
+        case 2:
+            lista_final = funcion_calcular_salario(lista_emplados)
+            for empleado in lista_final:
+                print(f"El empleado {empleado['nombre']} tiene: {empleado['horas_trabajadas']}hs. turno {empleado['turno']} en día {empleado['dia']}.\nSU SALARIO ES DE: ${empleado['salario']}\n")
+        case 3:
+            break
+        case _:
+            print("OPCION INVALIDA")
             
 
 """ 7. Realice el ejercicio 5 del practico número 2 (listas de tuplas), pero
