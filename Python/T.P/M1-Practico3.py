@@ -39,27 +39,35 @@ Ej.:  Entrada: 6 (1+2+3)
 carácter, y devuelva si ese carácter se encuentra dentro de la frase. Además de
 ello, la función debe poder indicar la cantidad de palabras que hay en la frase.  """
 
-# frase = input("Ingrese una frase: ")
-# palabra = input("Ingrese una palabra a buscar: ")
+frase = input("Ingrese una frase: ")
+caracter = input("Ingrese un caracter a buscar: ")
 
-# def funcion_verificadora (param_lista, param_palabra):
-#     palabra_esta = False
-#     contador_de_palabras = len(param_lista.split())
+def funcion_verificadora (param_lista, param_caracter):
+    caracter_esta = False
+    """contador_de_palabras = len(param_lista.split())"""
+    contador_de_palabras = 0
+    dentro_de_palabra = False
     
-#     for i in param_lista.split():
-#         if i == param_palabra:
-#             palabra_esta = True
-#             break
-#     return {"esta":palabra_esta, "nro_palabras": contador_de_palabras}
+    for i in param_lista:
+        if i == param_caracter:
+            caracter_esta = True
+            
+        if i != " " and  not dentro_de_palabra:  #En Python and es (&&) y not es negacion ( !dentro_de_palabra)
+            contador_de_palabras += 1
+            dentro_de_palabra = True
+        elif i == " ": 
+            dentro_de_palabra = False
+            
+    return {"esta":caracter_esta, "nro_palabras": contador_de_palabras}
 
-# verificador = funcion_verificadora( frase, palabra)
+verificador = funcion_verificadora( frase, caracter)
 
-# if verificador["esta"] :
-#     print(f"\nLa palabra '{palabra}' si esta en la frase.")
-#     print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
-# else:
-#     print(f"\nLa palabra '{palabra}' NO esta en la frase.")
-#     print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
+if verificador["esta"] :
+    print(f"\nEl caracter '{caracter}' si esta en la frase.")
+    print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
+else:
+    print(f"\nLa palabra '{caracter}' NO esta en la frase.")
+    print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
 
 """4. Escriba una función en Python que reciba una lista de valores enteros y devuelva
 otra lista sólo con aquellos valores pares.
@@ -67,36 +75,39 @@ Ej.:
 Entrada: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 Salida: [2, 4, 6, 8]    """
 
-def funcion_selector_pares( param_lista ):
-    lista_de_pares = []
-    for num in param_lista:
-        if num % 2 == 0:
-            lista_de_pares.append(num)
-    return lista_de_pares
+# def funcion_selector_pares( param_lista ):
+#     lista_de_pares = []
+#     for num in param_lista:
+#         if num % 2 == 0:
+#             lista_de_pares.append(num)
+#     return lista_de_pares
 
-lista_numeros = []
-opcion = 1
-while opcion != 3:
-    print("\nSeleccione su opcion: ")
-    print("1- AGREGAR numero")
-    print("2- VER numeros pares")
-    print("3- TERMINAR")
-    opcion = int(input("Ingrese su opcion: "))
+# lista_numeros = []
+# opcion = 1
+# while opcion != 3:
+#     print("\nSeleccione su opcion: ")
+#     print("1- AGREGAR numero")
+#     print("2- VER numeros pares")
+#     print("3- TERMINAR")
+#     opcion = int(input("Ingrese su opcion: "))
     
-    match opcion:
-        case 1:
-            numero = int(input("\nIngrese un Numero: "))
-            lista_numeros.append(numero)
-        case 2:
-            num_pares = funcion_selector_pares(lista_numeros)
-            print(f"Los numeros pares son: {num_pares}")
-        case 3:
-            break
-        case default:
-            print("OPCION INVALIDA")
+#     match opcion:
+#         case 1:
+#             numero = int(input("\nIngrese un Numero: "))
+#             lista_numeros.append(numero)
+#         case 2:
+#             num_pares = funcion_selector_pares(lista_numeros)
+#             print(f"Los numeros pares son: {num_pares}")
+#         case 3:
+#             break
+#         case default:
+#             print("OPCION INVALIDA")
 
 """5. Escribir una función que reciba una frase y devuelva un diccionario con las
 palabras que contiene y su longitud. """
+
+
+
 """6. Los empleados de una fábrica trabajan en dos turnos, Diurno y Nocturno. Se
 desea calcular el jornal diario de acuerdo a las siguientes reglas:
  La tarifa de las horas diurnas es de $350
