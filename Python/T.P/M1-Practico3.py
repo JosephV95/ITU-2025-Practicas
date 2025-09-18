@@ -39,35 +39,35 @@ Ej.:  Entrada: 6 (1+2+3)
 carácter, y devuelva si ese carácter se encuentra dentro de la frase. Además de
 ello, la función debe poder indicar la cantidad de palabras que hay en la frase.  """
 
-frase = input("Ingrese una frase: ")
-caracter = input("Ingrese un caracter a buscar: ")
+# frase = input("Ingrese una frase: ")
+# caracter = input("Ingrese un caracter a buscar: ")
 
-def funcion_verificadora (param_lista, param_caracter):
-    caracter_esta = False
-    """contador_de_palabras = len(param_lista.split())"""
-    contador_de_palabras = 0
-    dentro_de_palabra = False
+# def funcion_verificadora (param_lista, param_caracter):
+#     caracter_esta = False
+#     """contador_de_palabras = len(param_lista.split())"""
+#     contador_de_palabras = 0
+#     dentro_de_palabra = False
     
-    for i in param_lista:
-        if i == param_caracter:
-            caracter_esta = True
+#     for i in param_lista:
+#         if i == param_caracter:
+#             caracter_esta = True
             
-        if i != " " and  not dentro_de_palabra:  #En Python and es (&&) y not es negacion ( !dentro_de_palabra)
-            contador_de_palabras += 1
-            dentro_de_palabra = True
-        elif i == " ": 
-            dentro_de_palabra = False
+#         if i != " " and  not dentro_de_palabra:  #En Python and es (&&) y not es negacion ( !dentro_de_palabra)
+#             contador_de_palabras += 1
+#             dentro_de_palabra = True
+#         elif i == " ": 
+#             dentro_de_palabra = False
             
-    return {"esta":caracter_esta, "nro_palabras": contador_de_palabras}
+#     return {"esta":caracter_esta, "nro_palabras": contador_de_palabras}
 
-verificador = funcion_verificadora( frase, caracter)
+# verificador = funcion_verificadora( frase, caracter)
 
-if verificador["esta"] :
-    print(f"\nEl caracter '{caracter}' si esta en la frase.")
-    print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
-else:
-    print(f"\nLa palabra '{caracter}' NO esta en la frase.")
-    print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
+# if verificador["esta"] :
+#     print(f"\nEl caracter '{caracter}' si esta en la frase.")
+#     print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
+# else:
+#     print(f"\nLa palabra '{caracter}' NO esta en la frase.")
+#     print(f"Y la frase tiene {verificador['nro_palabras']} palabras en total")
 
 """4. Escriba una función en Python que reciba una lista de valores enteros y devuelva
 otra lista sólo con aquellos valores pares.
@@ -106,7 +106,32 @@ Salida: [2, 4, 6, 8]    """
 """5. Escribir una función que reciba una frase y devuelva un diccionario con las
 palabras que contiene y su longitud. """
 
+def funcion_diccionario_palabras(param_frase):
+    diccionario_palabras= {}
+    contador_caracteres = 0
+    palabra_formada = ""
+    
+    for c in param_frase:
+        #? Abreviado seria  if c in " ,." Y para hacerlo al reves y que pregunte si c!= "" and c!="." and c!="," abreviado c in not " ,."
+        if c == " " or c == "," or c == ".":  
+            if len(palabra_formada) > 0:
+                diccionario_palabras[palabra_formada] = contador_caracteres
+                palabra_formada = ""
+                contador_caracteres = 0
+        
+        else :
+            contador_caracteres += 1
+            palabra_formada += c
+        
+    #! Por si la frase no termina en espacio o punto
+    if len(palabra_formada) > 0:
+        diccionario_palabras[palabra_formada] = contador_caracteres
+    
+    return diccionario_palabras
 
+frase = input("Ingrese su frase: ")
+diccionario_final = funcion_diccionario_palabras(frase)
+print(f"\nEl Diccionario formado es: \n{diccionario_final}")
 
 """6. Los empleados de una fábrica trabajan en dos turnos, Diurno y Nocturno. Se
 desea calcular el jornal diario de acuerdo a las siguientes reglas:
