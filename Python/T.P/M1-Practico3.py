@@ -192,7 +192,65 @@ en ese día. Mostrar por pantalla los datos ingresados y el sueldo calculado par
 #             print("OPCION INVALIDA")
 
 """ 7. Realice el ejercicio 5 del practico número 2 (listas de tuplas), pero
-implementando la/s función/es necesaria/s.  """
+implementando la/s función/es necesaria/s.  
+    Escribir un programa que permita cargar y procesar datos de alumnos del ITU en una lista de tuplas con la siguiente forma: 
+    (nombre, dni, materia). Ejemplo: [(“Manuel Juarez”, 19823451, “Matematica”), (“Silvana Paredes”, 22709128, “Programacion”), 
+    (“Rosa Ortiz”, 15123978, “Redes”), (“Luciana Hernandez”, 38981374, “Programacion”)]. 
+    Hacer un menú iterativo que permita al usuario realizar las siguientes operaciones:
+         Agregar alumnos a la lista.
+         Dado el DNI de un alumno, ver las materias que cursa.
+         Dada una materia, mostrar la cantidad de alumnos que la cursan.    """
+        
+def funcion_materias_por_dni (param_lista, param_dni):
+    materias_cursadas = []
+    for elemento in param_lista:
+        if elemento[1] == param_dni:
+            materias_cursadas.append(elemento[2])
+    return materias_cursadas
+def funcion_alumnos_por_materia( param_lista, param_materia):
+    cantidad_de_alumos = 0
+    for materia in param_lista:
+        if materia[2] == param_materia:
+            cantidad_de_alumos += 1
+    return cantidad_de_alumos
+    
+lista_datos_alumnos = [('JOSE', 39, 'mate'), ('GUADA', 22, 'datos'), ('MARIANA', 25, 'mate'), ('DANTE', 21, 'fisica'), ('DANTE', 21, 'logica')]
+
+opcion = 0
+while opcion !=4:
+    print("Ingrese una de las siguientes opciones: ")
+    print("1 - AGREGAR alumno: ")
+    print("2 - Ver MATERIAS segun el DNI: ")
+    print("3 - Ver ALUMNOS por MATERIA: ")
+    print("4 - Cancelar")
+    opcion = int(input("Ingrese su OPCION: "))
+                 
+    match opcion:
+        case 1:
+            nombre = input("Ingrese el Nombre: ")
+            dni = int(input("Ingrese el DNI: "))
+            materia = input("Ingrese la Materia: ")
+            lista_datos_alumnos.append( tuple([nombre.upper(), dni, materia.lower()]))
+            print("\n", lista_datos_alumnos)
+        
+        case 2:
+            dni_buscar = int(input("Ingrese el DNI a buscar: "))
+            lista_materias_dni = funcion_materias_por_dni(param_dni= dni_buscar, param_lista= lista_datos_alumnos )
+            
+            if len(lista_materias_dni) > 0:
+                print(f"El DNI {dni_buscar} cursa las materias: {lista_materias_dni}", )
+            else:
+                print(f"El DNI {dni_buscar} no cursa materias")
+                
+        case 3:
+            materia_buscar = input("Ingrese nombre de la materia: ").lower()
+            cantidad_alumnos = funcion_alumnos_por_materia(param_materia= materia_buscar, param_lista= lista_datos_alumnos)
+            print(f"La materia {materia_buscar} tiene {cantidad_alumnos} alumnos.")
+           
+        case 4:
+            break
+        case _:
+            print("OPCION INVALIDA")
 
 """8. Crea el siguiente módulo:
  El módulo se denominará operaciones.py y contendrá 4 funciones para realizar
