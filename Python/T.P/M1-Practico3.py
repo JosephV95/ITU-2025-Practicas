@@ -201,61 +201,60 @@ implementando la/s función/es necesaria/s.
          Dado el DNI de un alumno, ver las materias que cursa.
          Dada una materia, mostrar la cantidad de alumnos que la cursan.    """
         
-def funcion_materias_por_dni (param_lista, param_dni):
-    materias_cursadas = []
-    for elemento in param_lista:
-        if elemento[1] == param_dni:
-            materias_cursadas.append(elemento[2])
-    return materias_cursadas
-def funcion_alumnos_por_materia( param_lista, param_materia):
-    cantidad_de_alumos = 0
-    for materia in param_lista:
-        if materia[2] == param_materia:
-            cantidad_de_alumos += 1
-    return cantidad_de_alumos
+# def funcion_materias_por_dni (param_lista, param_dni):
+#     materias_cursadas = []
+#     for elemento in param_lista:
+#         if elemento[1] == param_dni:
+#             materias_cursadas.append(elemento[2])
+#     return materias_cursadas
+# def funcion_alumnos_por_materia( param_lista, param_materia):
+#     cantidad_de_alumos = 0
+#     for materia in param_lista:
+#         if materia[2] == param_materia:
+#             cantidad_de_alumos += 1
+#     return cantidad_de_alumos
     
-lista_datos_alumnos = [('JOSE', 39, 'mate'), ('GUADA', 22, 'datos'), ('MARIANA', 25, 'mate'), ('DANTE', 21, 'fisica'), ('DANTE', 21, 'logica')]
+# lista_datos_alumnos = [('JOSE', 39, 'mate'), ('GUADA', 22, 'datos'), ('MARIANA', 25, 'mate'), ('DANTE', 21, 'fisica'), ('DANTE', 21, 'logica')]
 
-opcion = 0
-while opcion !=4:
-    print("Ingrese una de las siguientes opciones: ")
-    print("1 - AGREGAR alumno: ")
-    print("2 - Ver MATERIAS segun el DNI: ")
-    print("3 - Ver ALUMNOS por MATERIA: ")
-    print("4 - Cancelar")
-    opcion = int(input("Ingrese su OPCION: "))
+# opcion = 0
+# while opcion !=4:
+#     print("Ingrese una de las siguientes opciones: ")
+#     print("1 - AGREGAR alumno: ")
+#     print("2 - Ver MATERIAS segun el DNI: ")
+#     print("3 - Ver ALUMNOS por MATERIA: ")
+#     print("4 - Cancelar")
+#     opcion = int(input("Ingrese su OPCION: "))
                  
-    match opcion:
-        case 1:
-            nombre = input("Ingrese el Nombre: ")
-            dni = int(input("Ingrese el DNI: "))
-            materia = input("Ingrese la Materia: ")
-            lista_datos_alumnos.append( tuple([nombre.upper(), dni, materia.lower()]))
-            print("\n", lista_datos_alumnos)
+#     match opcion:
+#         case 1:
+#             nombre = input("Ingrese el Nombre: ")
+#             dni = int(input("Ingrese el DNI: "))
+#             materia = input("Ingrese la Materia: ")
+#             lista_datos_alumnos.append( tuple([nombre.upper(), dni, materia.lower()]))
+#             print("\n", lista_datos_alumnos)
         
-        case 2:
-            dni_buscar = int(input("Ingrese el DNI a buscar: "))
-            lista_materias_dni = funcion_materias_por_dni(param_dni= dni_buscar, param_lista= lista_datos_alumnos )
+#         case 2:
+#             dni_buscar = int(input("Ingrese el DNI a buscar: "))
+#             lista_materias_dni = funcion_materias_por_dni(param_dni= dni_buscar, param_lista= lista_datos_alumnos )
             
-            if len(lista_materias_dni) > 0:
-                print(f"El DNI {dni_buscar} cursa las materias: {lista_materias_dni}", )
-            else:
-                print(f"El DNI {dni_buscar} no cursa materias")
+#             if len(lista_materias_dni) > 0:
+#                 print(f"El DNI {dni_buscar} cursa las materias: {lista_materias_dni}", )
+#             else:
+#                 print(f"El DNI {dni_buscar} no cursa materias")
                 
-        case 3:
-            materia_buscar = input("Ingrese nombre de la materia: ").lower()
-            cantidad_alumnos = funcion_alumnos_por_materia(param_materia= materia_buscar, param_lista= lista_datos_alumnos)
-            print(f"La materia {materia_buscar} tiene {cantidad_alumnos} alumnos.")
+#         case 3:
+#             materia_buscar = input("Ingrese nombre de la materia: ").lower()
+#             cantidad_alumnos = funcion_alumnos_por_materia(param_materia= materia_buscar, param_lista= lista_datos_alumnos)
+#             print(f"La materia {materia_buscar} tiene {cantidad_alumnos} alumnos.")
            
-        case 4:
-            break
-        case _:
-            print("OPCION INVALIDA")
+#         case 4:
+#             break
+#         case _:
+#             print("OPCION INVALIDA")
 
 """8. Crea el siguiente módulo:
- El módulo se denominará operaciones.py y contendrá 4 funciones para realizar
-una suma, una resta, un producto y una division entre dos números. Todas
-ellas devolverán el resultado.
+ El módulo se denominará operaciones.py y contendrá 4 funciones para realizar una suma, una resta, un producto y una division 
+entre dos números. Todas ellas devolverán el resultado.
  En las funciones del módulo deberá de haber tratamiento e invocación manual
 de errores para evitar que se quede bloqueada una funcionalidad, eso incluye:
  ValueError: En caso de que se envíen valores a las funciones que no sean
@@ -267,3 +266,43 @@ entre cero.
 Una vez diseñado el modulo, desarrolle un programa que, utilizando el modulo
 anterior, haga uso de todas la funciones con los parámetros ingresados por
 teclado """
+
+# import Operaciones_Ej8 as funciones_importadas  #! El programa principal quedo asi, pero se le debe crear el archivo modulo (ESTA RESUELTO EN LA CARPETA M1 TP3)
+# try:
+#     numero1 = int(input("Ingrese el primer numero: "))
+#     numero2 = int(input("Ingrese el segundo numero: "))
+# except ValueError:
+#     print("TIPO DE DATO INVALIDO: Se deben ingresar solo numeros")
+# else:
+#     res_suma = funciones_importadas.suma(numero1, numero2)
+#     res_resta = funciones_importadas.resta(numero1, numero2)
+#     res_multiplicacion = funciones_importadas.multiplicacion(numero1, numero2)
+#     res_division = funciones_importadas.division(numero1, numero2)
+
+#     print(f"\nLa Suma entre {numero1} y {numero2} da como resultado: {res_suma}")
+#     print(f"La Resta entre {numero1} y {numero2} da como resultado: {res_resta}")
+#     print(f"La Multiplicacion entre {numero1} y {numero2} da como resultado: {res_multiplicacion}")
+#     print(f"La Division entre {numero1} y {numero2} da como resultado: {res_division}")
+
+"""9. Cree un programa que pida por teclado el ingreso de un usuario y contraseña,
+luego de ello utilice las funciones validaUsuario y validaClave, ambas en un
+módulo llamado seguridad. Dichas funciones deben realizar lo siguiente:
+validaUsuario:
+ El nombre de usuario debe contener un mínimo de 6 caracteres y un
+máximo de 12.
+ El nombre de usuario debe ser alfanumérico. Si no lo cumple indicar el
+mensaje: “El nombre de usuario puede contener solo letras y números”
+ Nombre de usuario válido, retorna True
+validaClave:
+ La contraseña debe contener un mínimo de 8 caracteres
+ Una contraseña debe contener letras minúsculas, mayúsculas, números y
+al menos 1 carácter no alfanumérico
+ La contraseña no puede contener espacios en blanco
+ Contraseña válida, retorna True
+ Contraseña no válida, retorna el mensaje: “La contraseña elegida no es
+segura”  """
+
+
+"""10. Como ejercicio, escriba una función que use la funcion tomaNumero para leer un
+número del teclado y que maneje la excepción ErrorNumeroMalo.
+"""
