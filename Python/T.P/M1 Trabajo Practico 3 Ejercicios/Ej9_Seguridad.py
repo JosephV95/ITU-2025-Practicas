@@ -45,8 +45,7 @@ def valida_clave(param_clave):
         
     except ValueError as mensaje_de_error:
         print( mensaje_de_error)
-        print("Contraseña INVALIDA")
+        # print("La Contraseña elegida no es Segura")
         return False
     else:
-        print("Contraseña VALIDA")
         return True
