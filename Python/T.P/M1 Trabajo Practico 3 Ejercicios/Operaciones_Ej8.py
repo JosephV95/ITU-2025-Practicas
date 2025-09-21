@@ -19,9 +19,13 @@ def multiplicacion (a, b):
 
 def division(a, b):
     try:
-        return a / b
+       return a / b
+        
     except ZeroDivisionError:
-        print("NO ES POSIBLE DIVIDIR ENTRE CERO.")
+        return print("NO ES POSIBLE DIVIDIR POR CERO.")
+        
     except TypeError:
         print("TIPO DE DATO NO VALIDO. Se deben ingresar numeros.")
+        
+
    
