@@ -1,33 +1,52 @@
-"""9. Cree un programa que pida por teclado el ingreso de un usuario y contraseña,
-luego de ello utilice las funciones validaUsuario y validaClave, ambas en un
-módulo llamado seguridad. Dichas funciones deben realizar lo siguiente:
-validaUsuario:
- El nombre de usuario debe contener un mínimo de 6 caracteres y un
-máximo de 12.
- El nombre de usuario debe ser alfanumérico. Si no lo cumple indicar el
-mensaje: “El nombre de usuario puede contener solo letras y números”
- Nombre de usuario válido, retorna True
-validaClave:
- La contraseña debe contener un mínimo de 8 caracteres
- Una contraseña debe contener letras minúsculas, mayúsculas, números y
-al menos 1 carácter no alfanumérico
- La contraseña no puede contener espacios en blanco
- Contraseña válida, retorna True
- Contraseña no válida, retorna el mensaje: “La contraseña elegida no es
-segura”  """
-
 def valida_usuario(param_usuario):
     try:
         if len(param_usuario) < 5 or len(param_usuario) > 12:
             raise ValueError ("El Usuario debe contener entre de 6 y 12 caracteres.")
         
         if not param_usuario.isalnum() :
-            raise ValueError ("error alpanumeriso")
+            raise ValueError ("El Usuario solo debe tener caracteres alfanumericos")
     except ValueError as error_mensaje:
         print(error_mensaje)
         return False
-        
     else:
         return True
 
-# def valida_clave(param_clave):
+def valida_clave(param_clave):
+    try:
+        if len(param_clave) < 8:
+            raise ValueError("La contraseña debe tener un minimo de 8 caracteres.")
+        
+        if " " in param_clave:
+            raise ValueError("La contraseña no debe contener espacios.")
+        
+        tiene_mayus = False
+        tiene_minus = False
+        tiene_numero = False
+        tiene_caracter_especial = False
+        
+        for caracter in param_clave:
+            if caracter.isupper():
+                tiene_mayus = True
+            elif caracter.islower():
+                tiene_minus = True
+            elif caracter.isdigit():
+                tiene_numero = True
+            else:
+                tiene_caracter_especial = True
+                
+        if not tiene_mayus:
+            raise ValueError("La contraseña DEBE TENER al menos 1 MAYUSCULA.")
+        elif not tiene_minus:
+            raise ValueError("La contraseña DEBE TENER al menos 1 MINUSCULA.")
+        elif not tiene_numero:
+            raise ValueError("La contraseña DEBE TENER al menos 1 NUMERO.")
+        elif not tiene_caracter_especial:
+            raise ValueError("La contraseña DEBE TENER al menos 1 CARACTER ESPECIAL.")
+        
+    except ValueError as mensaje_de_error:
+        print( mensaje_de_error)
+        print("Contraseña INVALIDA")
+        return False
+    else:
+        print("Contraseña VALIDA")
+        return True
