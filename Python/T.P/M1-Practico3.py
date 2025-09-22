@@ -302,7 +302,20 @@ al menos 1 carácter no alfanumérico
  Contraseña no válida, retorna el mensaje: “La contraseña elegida no es
 segura”  """
 
+# EJERCICIO COMPLETADO EN CARPERTA M1 TP3
+
 
 """10. Como ejercicio, escriba una función que use la funcion tomaNumero para leer un
 número del teclado y que maneje la excepción ErrorNumeroMalo.
-"""
+""" 
+
+def tomaNumero (param_num):
+    try:
+        if not param_num.isdigit():
+            raise ValueError("Numero invalido")
+    except ValueError as mensaje_error:
+        print(mensaje_error)
+    else:
+        print("Numero correcto")
+    
+tomaNumero(input("Ingrese un numero: "))
