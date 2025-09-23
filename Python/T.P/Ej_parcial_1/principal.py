@@ -23,7 +23,7 @@ def compra_mas_alta(param_lista):
         if venta["monto"] > compra_mas_alta:
             compra_mas_alta = venta["monto"]
             nombre_cliente = venta["rsocial"]
-    # return { "nombre": nombre_cliente, "monto": compra_mas_alta }
+            
     return [nombre_cliente, compra_mas_alta]
     
 lista_ventas_hoy = [
@@ -53,7 +53,6 @@ while opcion !=5:
             print(f"El cuit {cuit} vendio: {ventas_cuit} \n")
         case 4:
             cliente = compra_mas_alta(lista_ventas_hoy)
-            # print(f"la venta mas alta fue de: {cliente['nombre']} por ${cliente['monto']}" )
             print(f"El cliente que hizo la compra más alta fue: {cliente[0]} por ${cliente[1]}" )
         case 5:
             break
