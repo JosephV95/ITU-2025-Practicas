@@ -4,7 +4,7 @@ lista_jugadores = [
     {'edad': 10, 'nombre': 'Juan Pérez', 'categoria': 1, 'posicion': 'Delantero', 'estadio': 'Malvinas Argentinas'},
     {'edad': 11, 'nombre': 'Carlos Gómez', 'categoria': 2, 'posicion': 'Mediocampista', 'estadio': 'Monumental'},
     {'edad': 15, 'nombre': 'Mario lopez', 'categoria': 3, 'posicion': 'delantero', 'estadio': 'Monumental'},
-    {'edad': 21, 'nombre': 'Benito Camelo', 'categoria': 1, 'posicion': 'arquero', 'estadio': 'Malvinas Argentinas'},
+    {'edad': 21, 'nombre': 'Benito Perez', 'categoria': 1, 'posicion': 'arquero', 'estadio': 'Malvinas Argentinas'},
     {'edad': 18, 'nombre': 'Armando Paredes', 'categoria': 2, 'posicion': 'defensor', 'estadio': 'Monumental'}
 ]
 
