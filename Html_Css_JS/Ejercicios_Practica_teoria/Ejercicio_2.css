@@ -1,0 +1,21 @@
+body{
+    background-color: rgba(35, 212, 91, 0.471);
+   
+}
+
+section{
+    text-align: center;
+    padding: 30px;
+}
+
+section button{
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: 700;
+    font-size: larger;
+}
+section button:hover{
+    background-color: crimson;
+}
