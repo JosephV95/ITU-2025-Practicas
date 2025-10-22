@@ -13,10 +13,47 @@ fondo sea un dado. -->
         body{
             background-color: #23d45b78;
         }
+        section{
+            text-align: center;
+            padding-top: 40px;
+        }
+        section button{
+            background-color: rgb(254, 162, 23);
+            padding: 10px 30px;
+            color: ghostwhite;
+            font-weight: 700;
+            border-radius: 30px;
+        }
+        section button:hover{
+            background-color: orangered;
+        }
+        article{
+            background-image: url("https://www.shutterstock.com/image-vector/poker-dice-view-golden-white-600nw-1741714043.jpg");
+            background-position: center;
+            min-height: 50svh;
+            color: white;
+        }
+        article h1{
+            font-size: xx-large;
+        }
     </style>
+    <script >
+        function tirarDados(){
+            var cartel = document.getElementById("cartel")
+
+            let numero = Math.floor(Math.random() * 6 ) +1
+
+            cartel.innerHTML = numero
+        }
+    </script>
     <title>Ejercicio 3</title>
 </head>
 <body>
-    
+    <section>
+        <button type="button" onclick={tirarDados()}>TIRARA DADOS</button>
+        <article>
+            <h1 id="cartel"></h1>
+        </article>
+    </section>
 </body>
 </html>
