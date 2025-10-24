@@ -1,15 +1,106 @@
-
+<!-- Crear una pagina que tenga 1 tabla con las filas y columnas necesarias para contener,
+titulo de la tabla (por ej. “Datos Personales”), 4 cajas de texto, 2 opciones (input de tipo
+radio), un combo (vea la etiqueta <select>) y un <textarea>. La idea es que el cliente
+pueda cargar su nombre, su apellido, su edad, su domicilio, indique su sexo
+seleccionando una de las 2 opciones y seleccione del combo la provincia en la que vive;
+al momento de “cambiar el valor” el combo de la provincia se debería mostrar en el área
+de texto todos los datos concatenados.
+     Implementar las funciones necesarias para no permitir que el usuario
+    cargue datos incorrectos (por ej.: solo números en el dato edad, solo
+    letras en el nombre y apellido, etc…estudie y utilice la función
+    predefinida isNaN())
+     La página debería contener, imágenes, título, colores, etc. -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rgb(0, 130, 181);
+            color: white;
+        }
+        section{
+            padding: 50px 0;
+        }
+    </style>
+    <script>
+        function mostrarDatos(){
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var edad = parseInt(document.getElementById("edad").value);
+            var domicilio = document.getElementById("domicilio").value;
+            var genero = document.getElementsByClassName(`input[name="genero"]:checked`).value;
+            var provincia = document.getElementById("provincia").value;
+
+            var mensaje= document.getElementById("mensaje_combo").ariaPlaceholder;
+            mensaje.innerHTML= `sus datos son: ${nombre} ${apellido} ${genero} ${domicilio} ${provincia}`
+
+        }
+    </script>
     <title>Ejercicio 4</title>
 </head>
+
 <body>
     <section>
-        
+
+        <table border="1" align="center" cellpadding="5">
+            <caption>DATOS PERSONALES</caption>
+            <tr>
+                <td>
+                    <label for="">Nombre:</label> <br>
+                    <input type="text" id="nombre">
+                </td>
+                <td>
+                    <label for="">Apellido:</label> <br>
+                    <input type="text" id="apellido">
+                </td>
+                <td>
+                    <label for="">Edad:</label> <br>
+                    <input type="number" id="edad">
+                </td>
+                <td>
+                    <label for="">Domicilio:</label> <br>
+                    <input type="text" id="domicilio">
+                </td>
+                <td>
+                    <label >Indique su genero:</label><br>
+
+                    <input type="radio" name="genero" id="Masculino">
+                    <label for="Masculino">Masculino</label>
+
+                    <input type="radio" name="genero" id="Femenino">
+                    <label for="Femenino">Femenino</label>
+                </td>
+                <td>
+                    <label for="">Indique su Provincia:</label> <br>
+                    <select name="provincia" id="combo_provincia" onchange={mostrarDatos()}>
+                        <option value="0" disabled selected>- Selecione una -</option>
+                        <option value="Chubut">Chubut</option>
+                        <option value="Jujuy">Jujuy</option>
+                        <option value="La Panpa">La Panpa</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="Misiones">Misiones</option>
+                        <option value="Rio Negro">Rio Negro</option>
+                        <option value="Salta">Salta</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="San Juan">San Juan</option>
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="6" rowspan="4" align="center">
+                    <label for="combo">Sus datos son:</label><br>
+                    <textarea name="combo" id="mensaje_combo" rows="4" cols="100" placeholder="sdfe"></textarea>
+                </td>
+
+            </tr>
+
+        </table>
     </section>
 </body>
+
 </html>
