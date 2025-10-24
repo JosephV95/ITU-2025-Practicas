@@ -17,26 +17,33 @@ de texto todos los datos concatenados.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background-color: rgb(0, 130, 181);
-            color: white;
-        }
-        section{
-            padding: 50px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="Ejercicio_4.css">
+   
     <script>
-        function mostrarDatos(){
+        function mostrarDatos() {
             var nombre = document.getElementById("nombre").value;
             var apellido = document.getElementById("apellido").value;
-            var edad = parseInt(document.getElementById("edad").value);
+            var edad = document.getElementById("edad").value;
             var domicilio = document.getElementById("domicilio").value;
-            var genero = document.getElementsByClassName(`input[name="genero"]:checked`).value;
+            var generoInput = document.querySelector(`input[name="genero"]:checked`);
+            var genero = generoInput ? generoInput.value : "No especificado"; //? El input radio sin seleccionar puede ocacionar problemas e interrumpir que se muestren los demas datos
+
             var provincia = document.getElementById("provincia").value;
 
-            var mensaje= document.getElementById("mensaje_combo").ariaPlaceholder;
-            mensaje.innerHTML= `sus datos son: ${nombre} ${apellido} ${genero} ${domicilio} ${provincia}`
+            if (!isNaN(nombre)) {
+                alert("El nombre no deben ser solo numeros")
+                return
+            }
+            if (!isNaN(apellido)) {
+                alert("El apellido no deben ser solo numeros")
+                return
+            }
+            if (isNaN(edad)) {
+                alert("La edad deben ser solo numeros")
+                return
+            }
+            var mensaje = document.getElementById("mensaje_combo");
+            mensaje.value = `Nombre: ${nombre} \nApellido: ${apellido} \nEdad: ${edad} \nDomicilio: ${domicilio} \nGenero: ${genero} \nProvincia: ${provincia}`;
 
         }
     </script>
@@ -45,61 +52,64 @@ de texto todos los datos concatenados.
 
 <body>
     <section>
+        <h1 >INFORMACIÓN SOBRE EL USUARIO</h1>
+        <p>A continuación le pediremos que ingrese sus datos personales</p>
+        <article>
+            <table border="1" align="center" cellpadding="5">
+                <caption>DATOS PERSONALES</caption>
+                <tr>
+                    <td>
+                        <label for="">Nombre:</label> <br>
+                        <input type="text" id="nombre">
+                    </td>
+                    <td>
+                        <label for="">Apellido:</label> <br>
+                        <input type="text" id="apellido">
+                    </td>
+                    <td>
+                        <label for="">Edad:</label> <br>
+                        <input type="number" id="edad" min="0" required>
+                    </td>
+                    <td>
+                        <label for="">Domicilio:</label> <br>
+                        <input type="text" id="domicilio">
+                    </td>
+                    <td>
+                        <label>Indique su genero:</label><br>
 
-        <table border="1" align="center" cellpadding="5">
-            <caption>DATOS PERSONALES</caption>
-            <tr>
-                <td>
-                    <label for="">Nombre:</label> <br>
-                    <input type="text" id="nombre">
-                </td>
-                <td>
-                    <label for="">Apellido:</label> <br>
-                    <input type="text" id="apellido">
-                </td>
-                <td>
-                    <label for="">Edad:</label> <br>
-                    <input type="number" id="edad">
-                </td>
-                <td>
-                    <label for="">Domicilio:</label> <br>
-                    <input type="text" id="domicilio">
-                </td>
-                <td>
-                    <label >Indique su genero:</label><br>
+                        <input type="radio" name="genero" id="Masculino" value="Masculino">
+                        <label for="Masculino">Masculino</label>
 
-                    <input type="radio" name="genero" id="Masculino">
-                    <label for="Masculino">Masculino</label>
+                        <input type="radio" name="genero" id="Femenino" value="Femenino">
+                        <label for="Femenino">Femenino</label>
+                    </td>
+                    <td>
+                        <label for="">Indique su Provincia:</label> <br>
+                        <select id="provincia" onchange="mostrarDatos()">
+                            <option value="0" disabled selected>- Selecione una -</option>
+                            <option value="Chubut">Chubut</option>
+                            <option value="Jujuy">Jujuy</option>
+                            <option value="La Pampa">La Pampa</option>
+                            <option value="Mendoza">Mendoza</option>
+                            <option value="Misiones">Misiones</option>
+                            <option value="Rio Negro">Rio Negro</option>
+                            <option value="Salta">Salta</option>
+                            <option value="San Luis">San Luis</option>
+                            <option value="San Juan">San Juan</option>
+                        </select>
+                    </td>
 
-                    <input type="radio" name="genero" id="Femenino">
-                    <label for="Femenino">Femenino</label>
-                </td>
-                <td>
-                    <label for="">Indique su Provincia:</label> <br>
-                    <select name="provincia" id="combo_provincia" onchange={mostrarDatos()}>
-                        <option value="0" disabled selected>- Selecione una -</option>
-                        <option value="Chubut">Chubut</option>
-                        <option value="Jujuy">Jujuy</option>
-                        <option value="La Panpa">La Panpa</option>
-                        <option value="Mendoza">Mendoza</option>
-                        <option value="Misiones">Misiones</option>
-                        <option value="Rio Negro">Rio Negro</option>
-                        <option value="Salta">Salta</option>
-                        <option value="San Luis">San Luis</option>
-                        <option value="San Juan">San Juan</option>
-                    </select>
-                </td>
+                </tr>
+                <tr>
+                    <td colspan="6" rowspan="4" align="center">
+                        <label for="combo">Sus datos son:</label><br>
+                        <textarea name="combo" id="mensaje_combo" rows="7" cols="50" placeholder=""></textarea>
+                    </td>
 
-            </tr>
-            <tr>
-                <td colspan="6" rowspan="4" align="center">
-                    <label for="combo">Sus datos son:</label><br>
-                    <textarea name="combo" id="mensaje_combo" rows="4" cols="100" placeholder="sdfe"></textarea>
-                </td>
+                </tr>
 
-            </tr>
-
-        </table>
+            </table>
+        </article>
     </section>
 </body>
 
