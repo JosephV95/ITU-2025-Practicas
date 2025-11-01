@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ejercicio_4.css">
+    <style>
+        input[type="number"]{
+            width: 50px;
+        }
+    </style>
+    <script src="Ejercicio_5.js"></script>
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <section>
+        <article>
+            <h1>Resolucion del Ejercicio 5</h1>
+            <p>Crear una página que permita la carga de los datos personales de un alumno (nombre,
+                apellido, dni, domicilio, etc), las materias que a cursado en el ultimo año (de un total de
+                10 materias) y las notas obtenidas para cada una de ellas. Dicha página debería contener
+                un diseño atractivo (imágenes, colores, botones, etc) según su criterio. Una vez
+                cargados los datos, se deberían realizar los controles lógicos mínimos, por ejemplo que
+                los datos personales estén completos, que el alumno al menos cursó 5 materias en el
+                año, que la fecha de nacimiento sea una fecha lógica y que el promedio de las notas de
+                cada materia sea superior a 7. Dichos controles se deben realizar con funciones
+                JavaScript, las cuales se encuentran en un archivo externo, por ejemplo,
+                misfunciones.js. Utilice arreglos, tablas, botones, imágenes y todos los elementos visto
+                hasta ahora para cumplir con el objetivo.</p>
+        </article>
+
+        <article>
+            <h2 align="center">Datos personales</h2>
+            <table align="center">
+                <tr>
+                    <td>
+                        <label for="">Ingrese su nombre: </label><br>
+                        <input type="text" name="" id="">
+                    </td>
+                    <td>
+                        <label for="">Ingrese su apellido: </label><br>
+                        <input type="text" name="" id="">
+                    </td>
+                    <td>
+                        <label for="">Ingrese su DNI: </label><br>
+                        <input type="text" name="" id="">
+                    </td>
+                    <td>
+                        <label for="">Ingrese su domicilio: </label><br>
+                        <input type="text" name="" id="">
+                    </td>
+                    <td>
+                        <label for="">Ingrese su fecha de nacimiento: </label><br>
+                        <input type="date" name="" id="">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Informacion de materias</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="matematicas">
+                        <label for="matematicas">Matematicas</label> <br>
+                        <tr >
+                            <td colspan="1">
+                                <label for="">Nota 1:</label>
+                                <input type="number" name="" id="" min="0" max="10">
+                            </td>
+                            <td>
+                                <label for="">Nota 2:</label>
+                                <input type="number" name="" id="" min="0" max="10">
+                            </td>
+                            <td>
+                                <label for="">Nota 3:</label>
+                                <input type="number" name="" id="" min="0" max="10">
+                            </td>
+                        </tr>
+                    </td>
+                </tr>
+            </table>
+        </article>
+    </section>
+</body>
+
+</html>
