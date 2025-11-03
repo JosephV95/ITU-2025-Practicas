@@ -62,8 +62,8 @@
                 <div>
                 <tr id="Matematicas">
                     <td >
-                        <input type="checkbox" name="" id="boxMatematicas" onclick="habilitarNotas('Matematicas')">
-                        <label for="boxMatematicas">Matematicas</label> <br>
+                        <input type="checkbox" name="" id="checkMatematicas" onclick="habilitarNotas('Matematicas')">
+                        <label for="checkMatematicas">Matematicas</label> <br>
                         <div >
                             <td colspan="1">
                                 <label for="">Nota 1:</label>
@@ -78,8 +78,8 @@
                                 <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
                             </td>
                             <td>
-                                <input type="button" value="Promedio" disabled>
-                                <input type="text" class="nota" name="" id="" disabled>
+                                <input type="button" value="Promedio" onclick="verPromedio('Matematicas')" disabled>
+                                <input type="text" class="mensajePromedio"  readonly disabled>
                             </td>
                         </div>
                     </td>
