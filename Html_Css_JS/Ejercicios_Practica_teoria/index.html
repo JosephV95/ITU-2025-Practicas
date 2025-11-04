@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Alumno</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="misfunciones.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Registro Académico del Alumno</h1>
+  </header>
+
+  <main>
+    <section class="datos-personales">
+      <h2>Datos Personales</h2>
+      <form id="form-alumno">
+        <div class="campo">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" />
+        </div>
+        <div class="campo">
+          <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido" />
+        </div>
+        <div class="campo">
+          <label for="dni">DNI:</label>
+          <input type="number" id="dni" />
+        </div>
+        <div class="campo">
+          <label for="domicilio">Domicilio:</label>
+          <input type="text" id="domicilio" />
+        </div>
+        <div class="campo">
+          <label for="fechaNacimiento">Fecha de nacimiento:</label>
+          <input type="date" id="fechaNacimiento" />
+        </div>
+
+        <h2>Materias y Notas</h2>
+        <p>Ingrese hasta 10 materias y sus notas:</p>
+        <table id="tabla-materias">
+          <thead>
+            <tr>
+              <th>Materia</th>
+              <th>Nota</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filas generadas con JS -->
+          </tbody>
+        </table>
+
+        <button type="button" id="btnValidar">Validar Datos</button>
+      </form>
+
+      <div id="resultado"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Registro Escolar - Proyecto HTML, CSS y JS</p>
+  </footer>
+</body>
+</html>
