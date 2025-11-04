@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Ejercicio_4.css">
+    <link rel="stylesheet" href="Ejercicio_5.css">
     <style>
-        input[type="number"]{
-            width: 60px;
-        }
+
     </style>
     <script src="Ejercicio_5.js"></script>
     <title>Ejercicio 5</title>
@@ -37,192 +35,277 @@
                 <tr>
                     <td>
                         <label for="">Ingrese su nombre: </label><br>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="nombre">
                     </td>
                     <td>
                         <label for="">Ingrese su apellido: </label><br>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="apellido">
                     </td>
                     <td>
                         <label for="">Ingrese su DNI: </label><br>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="dni">
                     </td>
                     <td>
                         <label for="">Ingrese su domicilio: </label><br>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="domicilio">
                     </td>
                     <td>
                         <label for="">Fecha de nacimiento: </label><br>
-                        <input type="date" name="" id="">
+                        <input type="date" name="" id="nacimiento">
                     </td>
                 </tr>
                 <tr>
                     <td colspan="5" align="center"> Informacion de materias</td>
                 </tr>
                 <div>
-                <tr id="Matematicas">
-                    <td >
-                        <input type="checkbox" name="" id="checkMatematicas" onclick="habilitarNotas('Matematicas')">
-                        <label for="checkMatematicas">Matematicas</label> <br>
-                        <div >
-                            <td colspan="1">
-                                <label for="">Nota 1:</label>
-                                <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
-                            </td>
-                            <td>
-                                <label for="">Nota 2:</label>
-                                <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
-                            </td>
-                            <td>
-                                <label for="">Nota 3:</label>
-                                <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
-                            </td>
-                            <td>
-                                <input type="button" value="Promedio" onclick="verPromedio('Matematicas')" disabled>
-                                <input type="text" class="mensajePromedio"  readonly disabled>
-                            </td>
-                        </div>
+                    <tr id="Matematicas">
+                        <td>
+                            <input type="checkbox" name="" id="checkMatematicas"
+                                onclick="habilitarNotas('Matematicas')">
+                            <label for="checkMatematicas">Matematicas</label> <br>
+                            <div>
+                        <td colspan="1">
+                            <label for="">Nota 1:</label>
+                            <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                        </td>
+                        <td>
+                            <label for="">Nota 2:</label>
+                            <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                        </td>
+                        <td>
+                            <label for="">Nota 3:</label>
+                            <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                        </td>
+                        <td>
+                            <input type="button" value="Promedio" onclick="verPromedio('Matematicas')" disabled>
+                            <input type="text" class="mensajePromedio" readonly disabled>
+                        </td>
+                </div>
+                </td>
+                </tr>
+                <tr id="Desarrollo">
+                    <td>
+                        <input type="checkbox" name="" id="checkDesarrollo" onclick="habilitarNotas('Desarrollo')">
+                        <label for="checkDesarrollo">Desarrollo</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Desarrollo')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
+                    </td>
+                </tr>
+                <tr id="Sistemas">
+                    <td>
+                        <input type="checkbox" name="" id="checkSistemas" onclick="habilitarNotas('Sistemas')">
+                        <label for="checkSistemas">Sistemas</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Sistemas')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
+                    </td>
+                </tr>
+                <tr id="Legislacion">
+                    <td>
+                        <input type="checkbox" name="" id="checkLegislacion" onclick="habilitarNotas('Legislacion')">
+                        <label for="checkLegislacion">Legislacion</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Legislacion')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
+                    </td>
+                </tr>
+                <tr id="Comprension">
+                    <td>
+                        <input type="checkbox" name="" id="checkComprension" onclick="habilitarNotas('Comprension')">
+                        <label for="checkComprension">Comprension</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Comprension')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
+                    </td>
+                </tr>
+                <tr id="Programación">
+                    <td>
+                        <input type="checkbox" name="" id="checkProgramación" onclick="habilitarNotas('Programación')">
+                        <label for="checkProgramación">Programación</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Programación')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
+                    </td>
+                </tr>
+                <tr id="Tecnologia">
+                    <td>
+                        <input type="checkbox" name="" id="checkTecnologia" onclick="habilitarNotas('Tecnologia')">
+                        <label for="checkTecnologia">Tecnologia</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Tecnologia')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
+                    </td>
+                </tr>
+                <tr id="Emprendedurismo">
+                    <td>
+                        <input type="checkbox" name="" id="checkEmprendedurismo"
+                            onclick="habilitarNotas('Emprendedurismo')">
+                        <label for="checkEmprendedurismo">Emprendedurismo</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Emprendedurismo')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
+                    </td>
+                </tr>
+                <tr id="Modelo de Datos">
+                    <td>
+                        <input type="checkbox" name="" id="checkModelo de Datos"
+                            onclick="habilitarNotas('Modelo de Datos')">
+                        <label for="checkModelo de Datos">Modelo de Datos</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Modelo de Datos')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
+                    </td>
+                </tr>
+                <tr id="Ingles">
+                    <td>
+                        <input type="checkbox" name="" id="checkIngles" onclick="habilitarNotas('Ingles')">
+                        <label for="checkIngles">Ingles</label> <br>
+                        <div>
+                    <td colspan="1">
+                        <label for="">Nota 1:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 2:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <label for="">Nota 3:</label>
+                        <input type="number" class="nota" name="" id="" min="0" max="10" value="0" disabled>
+                    </td>
+                    <td>
+                        <input type="button" value="Promedio" onclick="verPromedio('Ingles')" disabled>
+                        <input type="text" class="mensajePromedio" readonly disabled>
+                    </td>
+                    </div>
                     </td>
                 </tr>
                 </div>
+
                 <tr>
-                    <td>
-                        <input type="checkbox" name="" id="Desarrollo">
-                        <label for="Desarrollo">Desarrollo</label> <br>
-                        <span >
-                            <td colspan="1">
-                                <label for="">Nota 1:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 2:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 3:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" id="Sistemas">
-                        <label for="Sistemas">Sistemas</label> <br>
-                        <span >
-                            <td colspan="1">
-                                <label for="">Nota 1:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 2:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 3:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" id="Legislacion">
-                        <label for="Legislacion">Legislacion</label> <br>
-                        <span >
-                            <td colspan="1">
-                                <label for="">Nota 1:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 2:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 3:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" id="Comprension">
-                        <label for="Comprension">Comprension</label> <br>
-                        <span >
-                            <td colspan="1">
-                                <label for="">Nota 1:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 2:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 3:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" id="Programacion">
-                        <label for="Programacion">Programacion</label> <br>
-                        <span >
-                            <td colspan="1">
-                                <label for="">Nota 1:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 2:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 3:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" id="Tecnologia">
-                        <label for="Tecnologia">Tecnologia</label> <br>
-                        <span >
-                            <td colspan="1">
-                                <label for="">Nota 1:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 2:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 3:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" id="Enprendedurismo">
-                        <label for="Enprendedurismo">Enprendedurismo</label> <br>
-                        <div display="hidden">
-                            <td colspan="1">
-                                <label for="">Nota 1:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 2:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                            <td>
-                                <label for="">Nota 3:</label>
-                                <input type="number" name="" id="" min="0" max="10">
-                            </td>
-                        </div>
+                    <td colspan="6" align="center">
+                        <button class="botonValidar" onclick="validarDatos()">Validar Datos</button>
                     </td>
                 </tr>
             </table>

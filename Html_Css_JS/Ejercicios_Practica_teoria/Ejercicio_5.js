@@ -11,7 +11,7 @@ function habilitarNotas(materia) {
     });
 
     botonPromedio.disabled = false;
-    mensajePromedio.disabled =false
+    mensajePromedio.disabled = false;
   } else {
     notas.forEach((nota) => (nota.disabled = true));
 
@@ -27,15 +27,36 @@ function verPromedio(materia) {
   var sumaNotas = 0;
   var totalNotas = 0;
   console.log(listaNotas);
-  
 
   listaNotas.forEach((nota) => {
     sumaNotas += parseInt(nota.value);
     totalNotas++;
   });
 
-  promedio = ( sumaNotas / totalNotas ).toFixed(2);
+  promedio = (sumaNotas / totalNotas).toFixed(2);
 
   fila.querySelector(".mensajePromedio").value = promedio;
+}
 
+function validarDatos() {
+  if (
+    document.getElementById("nombre").value.length == 0 ||
+    document.getElementById("apellido").value.length == 0 ||
+    document.getElementById("dni").value.length == 0 ||
+    document.getElementById("domicilio").value.length == 0 ||
+    document.getElementById("nacimiento").value.length == 0
+  ) {
+    alert("Falta completar información en Datos personales");
+  } else if ( document.querySelectorAll('input[type="checkbox"]:checked').length < 5){
+    alert("Debe haber seleccionado un minimo de 5 materias")
+  }
+
+  else{
+    let info = document.querySelectorAll('input[type="checkbox"]:checked')
+    alert("TODOS LOS DATOS ESTAN CORRECTOS")
+    console.log(
+      info
+    );
+    
+  }
 }
