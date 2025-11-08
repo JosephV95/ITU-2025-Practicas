@@ -1,0 +1,74 @@
+body {
+    background-color: rgb(52, 31, 4);
+    /* background-image: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"); */
+    background-image: url("https://plus.unsplash.com/premium_photo-1674327105074-46dd8319164b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 99vh;
+    color: white;
+    margin: 0;
+    position: relative;
+    z-index: 0;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 190px 10px;
+}
+
+button {
+    margin: 15px 0;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.div-formulario {
+    display: flex;
+    justify-content: center;
+}
+
+.div-formulario form {
+    position: relative;
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: 2px solid #065b9c;
+    background-color: #022642;
+    overflow: hidden;
+}
+.div-formulario form::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+.div-formulario form h3 {
+    text-align: center;
+    margin-top: 0;
+}
+.div-formulario form button{
+    background-color: #0e7b67;
+    color: aliceblue;
+    padding: 7px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.div-formulario form button:hover{
+    background-color: #066856;
+}
