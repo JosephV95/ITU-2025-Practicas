@@ -4,53 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Ejercicio_4.css">
-    <style>
-        body {
-            background-color: rgb(0, 130, 181);
-            background-image: url("https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170");
-            background-size: cover;
-            color: white;
-            margin: 0;
-            position: relative;
-            z-index: 0;
-        }
+    
+    <!-- <link rel="stylesheet" href="../static/Estilos_Generales.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Estilos_Generales.css') }}"> <!--? LINK CSS PARA FUNCIONAMIETO EN FLASK -->
 
-        body::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.56);
-            z-index: -1;
-        }
-
-        section {
-            padding: 50px 0;
-        }
-
-        section h1 {
-            text-align: center;
-
-        }
-
-        section p {
-            text-align: center;
-            font-size: larger;
-        }
-        button{
-            margin: 15px 0 ;
-        }
-        form{
-            margin-bottom: 20px;
-        }
-    </style>
     <script>
         // function form_get() {
-        //                 document.getElementById("form_get").submit()
+        //    document.getElementById("form_get").submit()
         // }
     </script>
     <title>Ejercicio 6</title>
@@ -58,8 +18,8 @@
 
 <body>
     <section>
-        <article>
-            <h1>Consigna del Ejercicio 6</h1>
+        <article class="header">
+            <h2>Consigna del Ejercicio 6</h2>
             <p>Usando formularios, cree una página html que contenga 2 cajas de texto, un combo el
                 cual contendrá las operaciones matemáticas básicas y un botón. La idea es que el
                 usuario cargue números, seleccione una operación y luego de ejecutar el botón esa info
@@ -68,8 +28,27 @@
                 por POST.</p>
         </article>
 
-        <article>
+        <article class="div-formulario">
+
             <form action="/numeros" method="GET" id="form_get">
+                <h3>Formulario GET</h3>
+                <label for="">Numero 1</label>
+                <input type="number" name="numero_1" id="" required> <br>
+                <label for="">Numero 2</label>
+                <input type="number" name="numero_2" id="" required><br>
+                <label for="">Elegir Operacion</label>
+                <select name="operacion" id="" required>
+                    <option value="Suma">Suma</option>
+                    <option value="Resta">Resta</option>
+                    <option value="Multiplicacion">Multiplicacion</option>
+                    <option value="Division">Division</option>
+                </select> <br>
+                <button type="submit">Enviar datos (GET)</button>
+            </form>
+        </article>
+        <article class="div-formulario">
+            <form action="/numeros" method="POST" id="form_get">
+                <h3>Formulario POST</h3>
                 <label for="">Numero 1</label>
                 <input type="number" name="numero_1" id=""> <br>
                 <label for="">Numero 2</label>
@@ -81,23 +60,7 @@
                     <option value="Multiplicacion">Multiplicacion</option>
                     <option value="Division">Division</option>
                 </select> <br>
-                <button type="submit">Enviar datos GET</button>
-            </form>
-        </article>
-        <article>
-            <form action="/numeros" method="POST">
-                <label for="">Numero 1</label>
-                <input type="number" name="numero_1" id=""> <br>
-                <label for="">Numero 2</label>
-                <input type="number" name="numero_2" id=""><br>
-                <label for="">Elegir Operacion</label>
-                <select name="operacion" id="operacion_elegida">
-                    <option value="Suma" >Suma</option>
-                    <option value="Resta">Resta</option>
-                    <option value="Multiplicacion">Multiplicacion</option>
-                    <option value="Division">Division</option>
-                </select> <br>
-                <button>Enviar datos POST</button>
+                <button type="submit">Enviar datos (POST)</button>
             </form>
         </article>
     </section>
