@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='Estilos_Generales.css') }}"> ? LINK CSS PARA FUNCIONAMIETO EN FLASK -->
+    <link rel="stylesheet" href="../static/Estilos_Generales.css">
+
+    <script>
+
+    </script>
+
+    <title>Ejercicio 7</title>
+</head>
+
+<body>
+    <section>
+        <article class="header">
+            <h2>Consigna del Ejercicio 7</h2>
+            <p>Utilizando la teoría de servicios (vista en clases), realice una página en la que el usuario
+                carga un dni, fecha de nacimiento (utilice algún componente calendario descargado
+                desde la WEB e impleméntelo en su pagina), nombre y apellido de un alumno, y las
+                notas (5) para una materia en particular, luego de controlar si la información ha sido
+                cargada, desde un botón llamar a una función del servidor para obtener el promedio y la
+                nota más alta cargada. Y desde otro botón llamar a otra función que indique si el
+                alumno es mayor de edad o no.</p>
+        </article>
+
+        <article class="div-formulario">
+
+            <form action="/numeros" method="GET" id="form_get">
+                <h3>Formulario GET</h3>
+                <label for="">Nombre: </label>
+                <input type="text" name="" id="nombre"><br>
+                <label for="">Apellido: </label>
+                <input type="text" name="" id="apellido"><br>
+                <label for="">DNI: </label>
+                <input type="number" name="" id="dni" required> <br>
+                <label for="">Fecha de nacimiento: </label>
+                <input type="date" name="numero_2" id="nacimiento" required><br>
+                <br>
+                <label for="">Elija una Materia</label><br>
+                <select name="operacion" id="" required>
+                    <option value="Matematicas">Matemáticas</option>
+                    <option value="Comprension">Comprension</option>
+                    <option value="Desarrollo Pensam.">Desarrollo Pensam.</option>
+                    <option value="Modelo de Datos">Modelo de Datos</option>
+                    <option value="Sistemas Operativos">Sistemas Operativos</option>
+                    <option value="Emprendedurismo">Emprendedurismo</option>
+                    <option value="Programacion">Programacion</option>
+                </select> <br> <br>
+                <label for="">Nota 1 </label>
+                <input type="number" name="nota_1" id="" min="0" max="10" required> <br>
+                <label for="">Nota 2 </label>
+                <input type="number" name="nota_2" id="" min="0" max="10" required><br>
+                <label for="">Nota 3 </label>
+                <input type="number" name="nota_3" id="" min="0" max="10" required> <br>
+                <label for="">Nota 4 </label>
+                <input type="number" name="nota_4" id="" min="0" max="10" required><br>
+                <label for="">Nota 5 </label>
+                <input type="number" name="Nota_5" id="" min="0" max="10" required> <br>
+                
+                <button onclick="comprobarDatos()">Enviar datos (GET)</button>
+            </form>
+        </article>
+        
+    </section>
+</body>
+
+</html>

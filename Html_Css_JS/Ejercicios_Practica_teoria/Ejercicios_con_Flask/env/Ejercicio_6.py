@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route("/")
-def visual():
+def pagina_inicio():
     return render_template("Ejercicio_6.html")
 
 @app.route("/numeros", methods = ['GET', 'POST'])
