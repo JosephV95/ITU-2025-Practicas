@@ -26,23 +26,23 @@ body::before {
 
 .header {
     text-align: center;
-    padding: 40px 190px 10px;
+    padding: 20px 190px 10px;
 }
 
 button {
-    margin: 15px 0;
+    margin-top: 10px;
 }
 
 form {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.div-formulario {
+.div-formulario , .div-informacion {
     display: flex;
     justify-content: center;
 }
 
-.div-formulario form {
+.div-formulario form, .div-informacion div {
     position: relative;
     padding: 10px 30px;
     border-radius: 20px;
@@ -60,15 +60,15 @@ form {
 
 .div-formulario form h3 {
     text-align: center;
-    margin-top: 0;
+    margin: 0;
 }
-.div-formulario form button{
+.div-formulario form button, .div-informacion div button {
     background-color: #0e7b67;
     color: aliceblue;
     padding: 7px 15px;
     border-radius: 15px;
     font-weight: bold;
 }
-.div-formulario form button:hover{
+.div-formulario form button:hover, .div-informacion div button:hover {
     background-color: #066856;
 }
