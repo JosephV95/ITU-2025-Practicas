@@ -29,8 +29,6 @@ def pag_operacion():
     else :
         return f'{mensaje} <h2>El resultado es:  {numero_1 / numero_2}'
         
-    
-        
-
+            
 if __name__ == "__main__":
     app.run(debug=True)
