@@ -1,11 +1,11 @@
 function validarCampos() {
-  var nombre = document.getElementById("nombre").value;
-  var apellido = document.getElementById("apellido").value;
-  var dni = document.getElementById("dni").value;
-  if (nombre == "" || apellido == "" || dni == "") {
-    alert("Complete todos los campos obligatorios.");
-    return false;
-  }
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var dni = document.getElementById("dni").value;
+    if (nombre == "" || apellido == "" || dni == "") {
+        alert("Complete todos los campos obligatorios.");
+        return false;
+    }
 }
 
 function verificarValores() {
