@@ -11,7 +11,6 @@
         src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- <script rel="javascript" type="text/javascript" src="../static/jquery-1.11.1.min.js"></script> -->
 
-    <!-- Mis funciones hechas con JavaScript -->
     <script>
         function obtenerPromedio() {
             var nombre = document.getElementById("nombre").value;
@@ -88,7 +87,6 @@
 
                 success: function (response) {
                     data_recibida = response;
-                    // mensaje = "El alumno " + nombre + " " + apellido + " " + data_recibida.mensaje + " Tiene " + data_recibida.edad + "años."
                     mensaje_final = `El alumno ${nombre} ${apellido} ${data_recibida.mensaje} Tiene ${data_recibida.edad} años.`
                     document.querySelector(".mensaje_edad").innerHTML = mensaje_final;
                 },

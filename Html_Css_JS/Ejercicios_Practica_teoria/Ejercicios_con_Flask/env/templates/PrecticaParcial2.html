@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/Estilos_Generales.css">
+    <!-- LIBRERIA JQUERY ONLINE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>PRACTICA PARCIAL</title>
+</head>
+<body>
+    <section>
+        <article class="header">
+            <h2>Consigna del Ejercicio 9</h2>
+            <p>Implementar un sitio web que permita el logueo de un usuario con su clave, si el
+                usuario y la clave coinciden con lo registrado en una lista fija, se debe
+                redireccionar a otra página que simule la registración de 4 tipos de operaciones
+                bancarias: deposito, transacción (transferencia, pago de impuesto, etc), retiro y
+                consulta de saldos (o movimientos). Para ello, cuando se loguea el usuario se
+                debería iniciar la navegación con un saldo predefinido.</p>
+        </article>
+
+        <article class="div-informacion">
+            <div>
+                <h3 style="margin:0 0 5px;">Carga de Informacion</h3>
+                <label for="">Nombre: </label>
+                <input type="text" id="nombre"><br>
+                <label for="">Apellido:  </label>
+                <input type="text" id="apellido"><br>
+                <label for="">CUIT: </label>
+                <input type="number" id="cuit"><br>
+
+                <button onclick="enviarNombres()">Ordenar nombres (POST)</button>
+            </div>
+
+        </article>
+        <div style=" color: white; text-align: center;">
+            <h2 class="mensaje"></h2>
+        </div>
+    </section>
+</body>
+</html>
