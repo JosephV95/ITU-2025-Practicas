@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='Estilos_Generales.css') }}"> ? LINK CSS PARA FUNCIONAMIETO EN FLASK -->
+    <link rel="stylesheet" href="EstilosGenerales.css">
+    <!-- Libreria de Jquery Online -->
+    <script rel="javascript" type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>   
+    >
+    <script>
+        function obtenerPromedio() {
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var dni = document.getElementById("dni").value;
+            var nacimiento = document.getElementById("nacimiento").value;
+            if (nombre === "" || apellido === "" || dni === "" || nacimiento === "") {
+                alert("Complete todos los campos obligatorios.");
+                return false;
+            }
+
+            var nota1 = document.getElementById("nota_1").value;
+            var nota2 = document.getElementById("nota_2").value;
+            var nota3 = document.getElementById("nota_3").value;
+            var nota4 = document.getElementById("nota_4").value;
+            var nota5 = document.getElementById("nota_5").value;
+
+            var dataNotas = { "nota1": nota1, "nota2": nota2, "nota3": nota3, "nota4": nota4, "nota5": nota5 };
+            console.log(dataNotas);
+
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/promedio",
+                data: JSON.stringify(dataNotas),
+                headers: {
+                    "accept": "application/json",
+                    "content-type": "application/json"
+                },
+
+                success: function (response) {
+                    document.querySelector(".mensaje_promedio").innerHTML = "El promedio es: " + response.promedio + " y la nota mas alta es: " + response.nota_mas_alta;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            })
+            // Funciones para manejar las fechas con JavaScript, PERO EL EJERCICIO PIDE HACERLO CON FLASK
+
+            // // Crear objeto Date con la fecha de nacimiento
+            // const fechaNacimiento = new Date(nacimiento);
+            // // Obtener la fecha actual
+            // const hoy = new Date();
+            // // Calcular la edad
+            // let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            // const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+            // // Ajuste si el cumpleaños aún no llegó este año
+            // if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+            //     edad--;
+            // }
+        }
+        function verificarEdad() {
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var dni = document.getElementById("dni").value;
+            var nacimiento = document.getElementById("nacimiento").value;
+            if (nombre == "" || apellido == "" || dni == "" || nacimiento == "") {
+                alert("Por favor, complete todos los campos obligatorios.");
+                return false;
+            }
+
+            var dataEdad = { "nacimiento": nacimiento };
+            console.log(dataEdad);
+
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/verificar_edad",
+                data: JSON.stringify(nacimiento),
+                headers: {
+                    "accept": "application/json",
+                    "content-type": "application/json"
+                },
+
+                success: function (response) {
+                    data_recibida = response;
+                    mensaje_final = `El alumno ${nombre} ${apellido} ${data_recibida.mensaje} Tiene ${data_recibida.edad} años.`
+                    document.querySelector(".mensaje_edad").innerHTML = mensaje_final;
+                },
+                error: function (error) {
+                    console.log("Ocurrio un error: ", error);
+                }
+            })
+        }
+    </script>
+
+    <title>Ejercicio 8</title>
+</head>
+
+<body>
+    <section>
+        <article class="header">
+            <h2>Consigna del Ejercicio 8</h2>
+            <p>Utilizando la teoría de servicios (vista en clases), realice una página en la que el usuario
+                carga un dni, fecha de nacimiento (utilice algún componente calendario descargado
+                desde la WEB e impleméntelo en su pagina), nombre y apellido de un alumno, y las
+                notas (5) para una materia en particular, luego de controlar si la información ha sido
+                cargada, desde un botón llamar a una función del servidor para obtener el promedio y la
+                nota más alta cargada. Y desde otro botón llamar a otra función que indique si el
+                alumno es mayor de edad o no.</p>
+        </article>
+
+        <article class="div-informacion">
+            <div >
+                <h3 style="margin:0 0 5px;">Información de Alumno</h3>
+                <label for="">Nombre: </label>
+                <input type="text" name="" id="nombre"><br>
+                <label for="">Apellido: </label>
+                <input type="text" name="" id="apellido"><br>
+                <label for="">DNI: </label>
+                <input type="number" name="" id="dni" min="0"> <br>
+                <label for="">Fecha de nacimiento: </label>
+                <input type="date" name="numero_2" id="nacimiento"><br>
+                <br>
+                <label for="">Elija una Materia</label><br>
+                <select name="materia" id="materia">
+                    <option value="Matematicas">Matemáticas</option>
+                    <option value="Comprension">Comprension</option>
+                    <option value="Desarrollo Pensam.">Desarrollo Pensam.</option>
+                    <option value="Modelo de Datos">Modelo de Datos</option>
+                    <option value="Sistemas Operativos">Sistemas Operativos</option>
+                    <option value="Emprendedurismo">Emprendedurismo</option>
+                    <option value="Programacion">Programacion</option>
+                </select> <br> <br>
+                <label for="">Nota 1 </label>
+                <input type="number" name="nota_1" class="" id="nota_1" min="0" max="10" value=0><br>
+                <label for="">Nota 2 </label>
+                <input type="number" name="nota_2" class="" id="nota_2" min="0" max="10" value=0><br>
+                <label for="">Nota 3 </label>
+                <input type="number" name="nota_3" class="" id="nota_3" min="0" max="10" value=0><br>
+                <label for="">Nota 4 </label>
+                <input type="number" name="nota_4" class="" id="nota_4" min="0" max="10" value=0><br>
+                <label for="">Nota 5 </label>
+                <input type="number" name="nota_5" class="" id="nota_5" min="0" max="10" value=0><br>
+
+                <button onclick="obtenerPromedio()">Obtener Promedio (POST)</button> <br>
+                <button onclick="verificarEdad()">Verificar mayoria de edad (POST)</button>
+            </div>
+
+        </article>
+        <div style=" color: white; text-align: center;">
+            <h2 class="mensaje_promedio"></h2>
+            <h2 class="mensaje_edad"></h2>
+        </div>
+    </section>
+</body>
+
+</html>
