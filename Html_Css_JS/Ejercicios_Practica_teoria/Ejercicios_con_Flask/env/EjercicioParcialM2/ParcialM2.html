@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilos.css">
+
+    <script rel="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="Funciones.js"></script>
+
+    <title>Parcial M2</title>
+</head>
+
+<body>
+
+    <section>
+        <article>
+            <h1>Informacion para credito</h1>
+            <h3>Ingrese los siguientes datos</h3>
+
+            <div class="div-informacion">
+                <label for="">Nombre: </label>
+                <input type="text" name="" id="nombre" required><br>
+                <label for="">Apellido: </label>
+                <input type="text" name="" id="apellido" required><br>
+                <label for="">DNI: </label>
+                <input type="number" name="" id="dni" required><br>
+
+                <br>
+                <label for="">Valor total del auto:</label>
+                <input type="number" name="" id="valor_auto"><br>
+
+                <div>
+                    <label for="">Valor total de sus ultimos 12 ingresos. </label>
+                    <input type="number" name=""  id="ingreso"> <br>
+                    
+                </div>
+                <div class="div-botones">
+                    <button onclick="verificarCredito()">Verificar Credito</button>
+                    <button onclick="verPromedio()">Ver promedio de los ingresos</button>
+                </div>
+            </div>
+        </article>
+        <article>
+            <h2 id="mensaje_credito"></h2>
+            <h2 id="mensaje_promedio"></h2>
+        </article>
+    </section>
+
+</body>
+
+</html>
