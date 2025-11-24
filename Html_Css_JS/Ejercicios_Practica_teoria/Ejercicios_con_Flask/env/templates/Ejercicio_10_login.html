@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/Estilos_Generales.css">
+    <!-- LIBRE JQUERY ONLINE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        function validarUsuario() {
+            var usuario = document.getElementById("usuario").value;
+            var contraseña = document.getElementById("contraseña").value;
+
+            var datosUsuario = { "usuario": usuario, "contraseña": contraseña };
+
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/login",
+                data: JSON.stringify(datosUsuario),
+                headers: {
+                    "accept": "application/json",
+                    "content-type": "application/json"
+                },
+
+                success: function (respuesta) {
+                    if (respuesta.mensaje == "TODO OK") {
+                        window.location.replace("/validar_session")
+                    } else {
+                        document.getElementById("mensaje_devuelto").innerHTML = respuesta.mensaje
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert("Hubo error en el Login")
+                }
+
+            })
+        }
+    </script>
+    <title>Ejercicio 10 Login</title>
+</head>
+
+<body>
+    <section>
+        <article class="header">
+            <h2>Consigna del Ejercicio 10</h2>
+            <p> POA - Implementar un sitio web que permita el logueo de un usuario con su clave, si el
+                usuario y la clave coinciden con lo registrado en una lista fija, se debe redireccionar a
+                otra página que simule la registración de 4 tipos de operaciones bancarias: deposito,
+                transacción (transferencia, pago de impuesto, etc), retiro y consulta de saldos (o
+                movimientos). Para ello, cuando se loguea el usuario se debería iniciar la navegación
+                con un saldo predefinido e ir actualizándose con cada operación realizada.</p>
+        </article>
+
+        <article class="div-informacion">
+            <div>
+                <h3 style="margin:0 0 5px;">Iniciar Sesion</h3>
+                <label for="">Usuario: </label>
+                <input type="text" id="usuario"><br>
+                <label for="">Contraseña: </label>
+                <input type="text" id="contraseña"><br>
+
+                <button onclick="validarUsuario()">Ingresar (POST)</button>
+            </div>
+
+        </article>
+        <div style=" color: white; text-align: center;">
+            <h2 id="mensaje_devuelto"></h2>
+        </div>
+    </section>
+</body>
+
+</html>

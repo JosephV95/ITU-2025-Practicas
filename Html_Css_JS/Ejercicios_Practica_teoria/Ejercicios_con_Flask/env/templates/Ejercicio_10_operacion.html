@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/Estilos_Generales.css">
+    <!-- LIBRE JQUERY ONLINE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        function ejecutarOperacion(){
+            var operacion = document.getElementById("operacion").value;
+            var cantidad = document.getElementById("cantidad").value;
+
+            var datosOperacion = {"operacion": operacion, "cantidad" : cantidad};
+
+            $.ajax({
+                type: "POST",
+                url: "/operacion",
+                data: JSON.stringify(datosOperacion),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+
+                success: function( respuesta ){
+                    document.getElementById("mensaje_devuelto").innerHTML = respuesta.mensaje;
+                },
+                error: function( error ){
+                    console.log(error);
+                    alert("Hubo un error al ejecutar la operacion");
+                }
+            })
+        }
+    </script>
+    
+    <title>Ejercicio 10 Operacion</title>
+</head>
+<body>
+    <section>
+        <article class="header">
+            <h2>Consigna del Ejercicio 10</h2>
+            <p> POA - Implementar un sitio web que permita el logueo de un usuario con su clave, si el
+                usuario y la clave coinciden con lo registrado en una lista fija, se debe redireccionar a
+                otra página que simule la registración de 4 tipos de operaciones bancarias: deposito,
+                transacción (transferencia, pago de impuesto, etc), retiro y consulta de saldos (o
+                movimientos). Para ello, cuando se loguea el usuario se debería iniciar la navegación
+                con un saldo predefinido e ir actualizándose con cada operación realizada.</p>
+        </article>
+
+        <article class="div-informacion">
+            <div>
+                <h3 style="margin:0 0 5px;">Seleccione su operacion</h3>
+                <select name="" id="operacion">
+                    <option value="depositar">Depositar</option>
+                    <option value="transferir">Transferir</option>
+                    <option value="retirar">Retirar</option>
+                    <option value="saldo">Ver Saldo</option>
+                </select>
+                <label for="">Ingrese la cantidad: </label>
+                <input type="number" id="cantidad" min="0" value="0"><br>
+                
+                <button onclick="ejecutarOperacion()">Ejecutar Operacion</button>
+            </div>
+
+        </article>
+        <div style=" color: white; text-align: center;">
+            <h2 id="mensaje_devuelto"></h2>
+        </div>
+    </section>
+</body>
+</html>
