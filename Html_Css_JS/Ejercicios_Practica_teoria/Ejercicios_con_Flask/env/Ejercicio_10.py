@@ -50,7 +50,7 @@ def operacion():
             operacion = dataRecibida['operacion']
             cantidad = int( dataRecibida['cantidad'] )
             
-            # session["saldo_total"] = 0
+            # session["saldo_total"] = 0  # No me conviene iniciarlo en 0 porque cada vez que se llame a esta funcion se resetearia el saldo
             mensaje_a_devolver = ""
             
             if operacion == "depositar":
