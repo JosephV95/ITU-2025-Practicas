@@ -69,7 +69,7 @@ def operacion():
             return jsonify({"mensaje": mensaje_a_devolver})
             
     except KeyError:
-        return jsonify({"mensaje_operacion": "NO ESTA LOGUEADO"})
+        return jsonify({"mensaje": "NO ESTA LOGUEADO"})
     
     
 if __name__ == '__main__':
